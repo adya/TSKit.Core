@@ -1,10 +1,10 @@
 /// Defines a way to identify any object.
 public protocol Identifiable {
     
-    /// Identifier of the type.
+    /// Identifier of a type.
     static var identifier: String {get}
     
-    /// Identifier of `self`.
+    /// Identifier of the type of an instance.
     var identifier: String {get}
 }
 
