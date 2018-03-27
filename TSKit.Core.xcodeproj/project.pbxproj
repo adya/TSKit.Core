@@ -15,7 +15,6 @@
 		00063E181FDC52B100568DFD /* UIColor+UInt8.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00063E171FDC52B100568DFD /* UIColor+UInt8.swift */; };
 		00063E191FDC52B100568DFD /* UIColor+UInt8.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00063E171FDC52B100568DFD /* UIColor+UInt8.swift */; };
 		00063E1E1FDC5F3A00568DFD /* UIColor+Brightness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00063E1D1FDC5F3A00568DFD /* UIColor+Brightness.swift */; };
-		00063E1F1FDC5F3A00568DFD /* UIColor+Brightness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00063E1D1FDC5F3A00568DFD /* UIColor+Brightness.swift */; };
 		00063E211FDC668F00568DFD /* UInt+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00063E201FDC668F00568DFD /* UInt+String.swift */; };
 		00063E221FDC668F00568DFD /* UInt+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00063E201FDC668F00568DFD /* UInt+String.swift */; };
 		00063E241FDC677700568DFD /* BidirectionalCollection+Last.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00063E231FDC677700568DFD /* BidirectionalCollection+Last.swift */; };
@@ -29,7 +28,7 @@
 		00063E301FDC6BC400568DFD /* Dictionary+Filtering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00063E2F1FDC6BC400568DFD /* Dictionary+Filtering.swift */; };
 		00063E311FDC6BC400568DFD /* Dictionary+Filtering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00063E2F1FDC6BC400568DFD /* Dictionary+Filtering.swift */; };
 		00063E331FDC6C8D00568DFD /* Sequence+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00063E321FDC6C8D00568DFD /* Sequence+Random.swift */; };
-		00063E341FDC6C8D00568DFD /* Sequence+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00063E321FDC6C8D00568DFD /* Sequence+Random.swift */; };
+		005DF397206A99D900A9BDBB /* DataSize_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DF396206A99D900A9BDBB /* DataSize_Tests.swift */; };
 		0061832E20606B360079DD8C /* UIImage+GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0061832D20606B360079DD8C /* UIImage+GIF.swift */; };
 		00C2C3721FE321AB00721731 /* Sequence+ValueAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C2C3711FE321AB00721731 /* Sequence+ValueAccess.swift */; };
 		00C2C3741FE322FA00721731 /* ShadedColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C2C3731FE322FA00721731 /* ShadedColor.swift */; };
@@ -71,6 +70,7 @@
 		00063E2C1FDC697300568DFD /* Dictionary+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Mapping.swift"; sourceTree = "<group>"; };
 		00063E2F1FDC6BC400568DFD /* Dictionary+Filtering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Filtering.swift"; sourceTree = "<group>"; };
 		00063E321FDC6C8D00568DFD /* Sequence+Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Random.swift"; sourceTree = "<group>"; };
+		005DF396206A99D900A9BDBB /* DataSize_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSize_Tests.swift; sourceTree = "<group>"; };
 		0061832D20606B360079DD8C /* UIImage+GIF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+GIF.swift"; sourceTree = "<group>"; };
 		00C2C3711FE321AB00721731 /* Sequence+ValueAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+ValueAccess.swift"; sourceTree = "<group>"; };
 		00C2C3731FE322FA00721731 /* ShadedColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadedColor.swift; sourceTree = "<group>"; };
@@ -137,6 +137,7 @@
 			children = (
 				00063E071FDC4F6000568DFD /* String+JSON_Tests.swift */,
 				00063E091FDC4F6000568DFD /* Info.plist */,
+				005DF396206A99D900A9BDBB /* DataSize_Tests.swift */,
 			);
 			path = TSKit.CoreTests;
 			sourceTree = "<group>";
@@ -383,10 +384,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00063E1F1FDC5F3A00568DFD /* UIColor+Brightness.swift in Sources */,
 				00063E2B1FDC692300568DFD /* Sequence+Grouping.swift in Sources */,
+				005DF397206A99D900A9BDBB /* DataSize_Tests.swift in Sources */,
 				00063E311FDC6BC400568DFD /* Dictionary+Filtering.swift in Sources */,
-				00063E341FDC6C8D00568DFD /* Sequence+Random.swift in Sources */,
 				00063E221FDC668F00568DFD /* UInt+String.swift in Sources */,
 				00063E191FDC52B100568DFD /* UIColor+UInt8.swift in Sources */,
 				00063E281FDC67A500568DFD /* Sequence+Distinct.swift in Sources */,
