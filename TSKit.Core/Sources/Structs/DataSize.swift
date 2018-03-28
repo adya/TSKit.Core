@@ -1,55 +1,41 @@
-import Foundation
-
-extension Data {
+/// Represents a data size in common units without overflows.
+/// When any of the unit has overflow it will be adjusted and extra value will be shifted to higher unit.
+public struct DataSize: Comparable {
     
-    /// Represents a data size in common units without overflows.
-    /// When any of the unit has overflow it will be adjusted and extra value will be shifted to higher unit.
-    struct Size: Comparable {
+    /// Bytes portion of the size.
+    public let bytes: Int
+    
+    /// Kilobytes portion of the size.
+    public let kilobytes: Int
+    
+    /// Megabytes portion of the size.
+    public let megabytes: Int
+    
+    /// Gigabytes portion of the size.
+    public let gigabytes: Int
+    
+    /// Terabytes portion of the size.
+    public let terabytes: Int
+    
+    /// Initializes `DataSize` object with specified units.
+    /// - Note: Any overflows will be resolved and affected units will be adjusted.
+    ///         e.g. `1025 kilobytes` will be represented as `1 megabyte` and `1 kilobyte`.
+    public init(terabytes: Int = 0, gigabytes: Int = 0, megabytes: Int = 0, kilobytes: Int = 0, bytes: Int = 0) {
+        var kBytes: Int = 0
+        var mBytes: Int = 0
+        var gBytes: Int = 0
+        var tBytes: Int = 0
         
-        /// Bytes portion of the size.
-        let bytes: Int
-        
-        /// Kilobytes portion of the size.
-        let kilobytes: Int
-        
-        /// Megabytes portion of the size.
-        let megabytes: Int
-        
-        /// Gigabytes portion of the size.
-        let gigabytes: Int
-        
-        /// Terabytes portion of the size.
-        let terabytes: Int
-        
-        /// Initializes `Data.Size` object with specified units.
-        /// - Note: Any overflows will be resolved and affected units will be adjusted.
-        ///         e.g. `1025 kilobytes` will be represented as `1 megabyte` and `1 kilobyte`.
-        init(terabytes: Int = 0, gigabytes: Int = 0, megabytes: Int = 0, kilobytes: Int = 0, bytes: Int = 0) {
-            var kBytes: Int = 0
-            var mBytes: Int = 0
-            var gBytes: Int = 0
-            var tBytes: Int = 0
-            
-            (self.bytes, kBytes) = Data.Size.calculateOverflow(bytes)
-            (self.kilobytes, mBytes) = Data.Size.calculateOverflow(kilobytes + kBytes)
-            (self.megabytes, gBytes) = Data.Size.calculateOverflow(megabytes + mBytes)
-            (self.gigabytes, tBytes) = Data.Size.calculateOverflow(gigabytes + gBytes)
-            self.terabytes = terabytes + tBytes
-        }
-        
-        /// Calculates unit overflow and reminder when increasing unit to the next order of magnitude.
-        /// - Parameter unit: Units of lower order of magnitude in which overflow may occur.
-        /// - Returns: Tuple with reminder units of the overflow and number of overflown units.
-        fileprivate static func calculateOverflow(_ unit: Int) -> (reminder: Int, overflow: Int) {
-            let overflow = Unit.overflow(in: unit)
-            let reminder = unit - Unit.decrease(overflow)
-            return (reminder, overflow)
-        }
+        (self.bytes, kBytes) = DataSize.calculateOverflow(bytes)
+        (self.kilobytes, mBytes) = DataSize.calculateOverflow(kilobytes + kBytes)
+        (self.megabytes, gBytes) = DataSize.calculateOverflow(megabytes + mBytes)
+        (self.gigabytes, tBytes) = DataSize.calculateOverflow(gigabytes + gBytes)
+        self.terabytes = terabytes + tBytes
     }
 }
 
 // MARK: - Unit representations
-extension Data.Size {
+public extension DataSize {
     
     /// Total size in bytes.
     /// - Note: Unlike `bytes` property, which returns only bytes portion of the size,
@@ -100,36 +86,36 @@ extension Data.Size {
 }
 
 // MARK: - Operators.
-extension Data.Size {
-    static func -(lhs: Data.Size, rhs: Data.Size) -> Data.Size {
-        return Data.Size(bytes: abs(lhs.totalBytes - rhs.totalBytes))
+public extension DataSize {
+    static func -(lhs: DataSize, rhs: DataSize) -> DataSize {
+        return DataSize(bytes: abs(lhs.totalBytes - rhs.totalBytes))
     }
     
-    static func +(lhs: Data.Size, rhs: Data.Size) -> Data.Size {
-        return Data.Size(bytes: lhs.totalBytes + rhs.totalBytes)
+    static func +(lhs: DataSize, rhs: DataSize) -> DataSize {
+        return DataSize(bytes: lhs.totalBytes + rhs.totalBytes)
     }
     
-    static func -=(lhs: inout Data.Size, rhs: Data.Size) {
-        lhs = Data.Size(bytes: abs(lhs.totalBytes - rhs.totalBytes))
+    static func -=(lhs: inout DataSize, rhs: DataSize) {
+        lhs = DataSize(bytes: abs(lhs.totalBytes - rhs.totalBytes))
     }
     
-    static func +=(lhs: inout Data.Size, rhs: Data.Size) {
-        lhs = Data.Size(bytes: lhs.totalBytes + rhs.totalBytes)
+    static func +=(lhs: inout DataSize, rhs: DataSize) {
+        lhs = DataSize(bytes: lhs.totalBytes + rhs.totalBytes)
     }
     
-    static func ==(lhs: Data.Size, rhs: Data.Size) -> Bool {
+    static func ==(lhs: DataSize, rhs: DataSize) -> Bool {
         return lhs.totalBytes == rhs.totalBytes
     }
     
-    static func <(lhs: Data.Size, rhs: Data.Size) -> Bool {
+    static func <(lhs: DataSize, rhs: DataSize) -> Bool {
         return lhs.totalBytes < rhs.totalBytes
     }
 }
 
 // MARK: - CustomStringConvertible
-extension Data.Size: CustomStringConvertible {
+extension DataSize: CustomStringConvertible {
     
-    var description: String {
+    public var description: String {
         return "\(terabytes) \(Unit.terabyte.label), " +
             "\(gigabytes) \(Unit.gigabyte.label), " +
             "\(megabytes) \(Unit.megabyte.label), " +
@@ -137,7 +123,7 @@ extension Data.Size: CustomStringConvertible {
         "\(bytes) \(Unit.byte.label)"
     }
     
-    var shortDescription: String {
+    public var shortDescription: String {
         var res = ""
         if bytes > 0 {
             res = "\(bytes) \(Unit.byte.label)"
@@ -162,7 +148,7 @@ extension Data.Size: CustomStringConvertible {
     }
     
     /// String representation of the size with the greatest unit only.
-    var maxDescription: String {
+    public var maxDescription: String {
         if terabytes > 0 {
             return "\(terabytes) \(Unit.terabyte.label)"
         } else if gigabytes > 0 {
@@ -177,17 +163,21 @@ extension Data.Size: CustomStringConvertible {
     }
 }
 
-// MARK: - Data + Size
-extension Data {
+// MARK: - Calculations
+private extension DataSize {
     
-    /// Size of the `Data` represented by `Data.Size` struct.
-    var size: Size {
-        return Size(bytes: count)
+    /// Calculates unit overflow and reminder when increasing unit to the next order of magnitude.
+    /// - Parameter unit: Units of lower order of magnitude in which overflow may occur.
+    /// - Returns: Tuple with reminder units of the overflow and number of overflown units.
+    static func calculateOverflow(_ unit: Int) -> (reminder: Int, overflow: Int) {
+        let overflow = Unit.overflow(in: unit)
+        let reminder = unit - Unit.decrease(overflow)
+        return (reminder, overflow)
     }
 }
 
-// MARK: - Data.Size.Unit
-private extension Data.Size {
+// MARK: - DataSize.Unit
+private extension DataSize {
     
     /// Order of magnitude of the unit to which `1024` should be raised in order to calculate bytes.
     enum Unit: Int {
@@ -217,8 +207,6 @@ private extension Data.Size {
                 return "Tb"
             }
         }
-        
-        
         
         /// Converts specified `number` of units to `targetUnit` units.
         /// - Parameter number: Number of units to be converted.
