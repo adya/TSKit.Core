@@ -1,30 +1,36 @@
+import Foundation
+
 /// Represents a data size in common units without overflows.
 /// When any of the unit has overflow it will be adjusted and extra value will be shifted to higher unit.
-public struct DataSize: Comparable {
+public struct DataSize<IntegerType>: Comparable where IntegerType: FixedWidthInteger {
     
     /// Bytes portion of the size.
-    public let bytes: Int
+    let bytes: IntegerType
     
     /// Kilobytes portion of the size.
-    public let kilobytes: Int
+    let kilobytes: IntegerType
     
     /// Megabytes portion of the size.
-    public let megabytes: Int
+    let megabytes: IntegerType
     
     /// Gigabytes portion of the size.
-    public let gigabytes: Int
+    let gigabytes: IntegerType
     
     /// Terabytes portion of the size.
-    public let terabytes: Int
+    let terabytes: IntegerType
     
     /// Initializes `DataSize` object with specified units.
     /// - Note: Any overflows will be resolved and affected units will be adjusted.
     ///         e.g. `1025 kilobytes` will be represented as `1 megabyte` and `1 kilobyte`.
-    public init(terabytes: Int = 0, gigabytes: Int = 0, megabytes: Int = 0, kilobytes: Int = 0, bytes: Int = 0) {
-        var kBytes: Int = 0
-        var mBytes: Int = 0
-        var gBytes: Int = 0
-        var tBytes: Int = 0
+    init(terabytes: IntegerType = 0,
+         gigabytes: IntegerType = 0,
+         megabytes: IntegerType = 0,
+         kilobytes: IntegerType = 0,
+         bytes: IntegerType = 0) {
+        var kBytes: IntegerType = 0
+        var mBytes: IntegerType = 0
+        var gBytes: IntegerType = 0
+        var tBytes: IntegerType = 0
         
         (self.bytes, kBytes) = DataSize.calculateOverflow(bytes)
         (self.kilobytes, mBytes) = DataSize.calculateOverflow(kilobytes + kBytes)
@@ -40,8 +46,8 @@ public extension DataSize {
     /// Total size in bytes.
     /// - Note: Unlike `bytes` property, which returns only bytes portion of the size,
     ///         this one returns size represented in bytes. (e.g `2048 b`)
-    var totalBytes: Int {
-        return Int(representation(in: .byte))
+    var totalBytes: IntegerType {
+        return IntegerType(representation(in: .byte))
     }
     
     /// Total size represented in kilobytes.
@@ -75,11 +81,11 @@ public extension DataSize {
     /// Calculates representation of the size in specified `unit`.
     /// - Returns: Number of units in size.
     private func representation(in unit: Unit) -> Double {
-        let conversions: [(Unit, Int)] = [(.byte, bytes),
-                                          (.kilobyte, kilobytes),
-                                          (.megabyte, megabytes),
-                                          (.gigabyte, gigabytes),
-                                          (.terabyte, terabytes)]
+        let conversions: [(Unit, IntegerType)] = [(.byte, bytes),
+                                                  (.kilobyte, kilobytes),
+                                                  (.megabyte, megabytes),
+                                                  (.gigabyte, gigabytes),
+                                                  (.terabyte, terabytes)]
         
         return conversions.reduce(0.0) { $0 + $1.0.convert($1.1, to: unit) }
     }
@@ -87,20 +93,24 @@ public extension DataSize {
 
 // MARK: - Operators.
 public extension DataSize {
+    
     static func -(lhs: DataSize, rhs: DataSize) -> DataSize {
-        return DataSize(bytes: abs(lhs.totalBytes - rhs.totalBytes))
+        let lBytes = lhs.totalBytes
+        let rBytes = rhs.totalBytes
+        let result = lBytes > rBytes ? lBytes.unsafeSubtracting(rBytes) : rBytes.unsafeSubtracting(lBytes)
+        return DataSize(bytes: result)
     }
     
     static func +(lhs: DataSize, rhs: DataSize) -> DataSize {
-        return DataSize(bytes: lhs.totalBytes + rhs.totalBytes)
+        return DataSize(bytes: lhs.totalBytes.unsafeAdding(rhs.totalBytes))
     }
     
     static func -=(lhs: inout DataSize, rhs: DataSize) {
-        lhs = DataSize(bytes: abs(lhs.totalBytes - rhs.totalBytes))
+        lhs = lhs - rhs
     }
     
     static func +=(lhs: inout DataSize, rhs: DataSize) {
-        lhs = DataSize(bytes: lhs.totalBytes + rhs.totalBytes)
+        lhs = lhs + rhs
     }
     
     static func ==(lhs: DataSize, rhs: DataSize) -> Bool {
@@ -150,15 +160,15 @@ extension DataSize: CustomStringConvertible {
     /// String representation of the size with the greatest unit only.
     public var maxDescription: String {
         if terabytes > 0 {
-            return "\(terabytes) \(Unit.terabyte.label)"
+            return "\(totalTerabytes) \(Unit.terabyte.label)"
         } else if gigabytes > 0 {
-            return "\(gigabytes) \(Unit.gigabyte.label)"
+            return "\(totalGigabytes) \(Unit.gigabyte.label)"
         } else if megabytes > 0 {
-            return "\(megabytes) \(Unit.megabyte.label)"
+            return "\(totalMegabytes) \(Unit.megabyte.label)"
         } else if kilobytes > 0 {
-            return "\(kilobytes) \(Unit.kilobyte.label)"
+            return "\(totalKilobytes) \(Unit.kilobyte.label)"
         } else {
-            return "\(bytes) \(Unit.byte.label)"
+            return "\(totalBytes) \(Unit.byte.label)"
         }
     }
 }
@@ -169,7 +179,7 @@ private extension DataSize {
     /// Calculates unit overflow and reminder when increasing unit to the next order of magnitude.
     /// - Parameter unit: Units of lower order of magnitude in which overflow may occur.
     /// - Returns: Tuple with reminder units of the overflow and number of overflown units.
-    static func calculateOverflow(_ unit: Int) -> (reminder: Int, overflow: Int) {
+    static func calculateOverflow(_ unit: IntegerType) -> (reminder: IntegerType, overflow: IntegerType) {
         let overflow = Unit.overflow(in: unit)
         let reminder = unit - Unit.decrease(overflow)
         return (reminder, overflow)
@@ -213,22 +223,42 @@ private extension DataSize {
         /// - Parameter targetUnit: Unit to which number should be converted.
         /// - Note: When converting from higher units to lower resulting value will be integer.
         /// - Returns: Number of converted units.
-        func convert(_ number: Int, to targetUnit: Unit) -> Double {
+        func convert(_ number: IntegerType, to targetUnit: Unit) -> Double {
             let conversionFactor = pow(1024.0, Double(self.rawValue - targetUnit.rawValue))
-            return Double(number) * conversionFactor
+            return Double(number)! * conversionFactor
         }
         
         /// Calculates unit overflow when increasing unit to the next order of magnitude.
-        static func overflow(in units: Int) -> Int {
-            return Int(Unit.increase(units))
+        static func overflow(in units: IntegerType) -> IntegerType {
+            return IntegerType(Unit.increase(units))
         }
         
-        static func increase(_ units: Int) -> Double {
+        static func increase(_ units: IntegerType) -> Double {
             return Unit.byte.convert(units, to: Unit.kilobyte)
         }
         
-        static func decrease(_ units: Int) -> Int {
-            return Int(Unit.kilobyte.convert(units, to: Unit.byte))
+        static func decrease(_ units: IntegerType) -> IntegerType {
+            return IntegerType(Unit.kilobyte.convert(units, to: Unit.byte))
+        }
+    }
+}
+
+// MARK: - Double + FixedWidthInteger
+private extension Double {
+    
+    init?<T>(_ integer: T) where T: FixedWidthInteger {
+        switch integer {
+        case let num as UInt: self = Double(num)
+        case let num as UInt8: self = Double(num)
+        case let num as UInt16: self = Double(num)
+        case let num as UInt32: self = Double(num)
+        case let num as UInt64: self = Double(num)
+        case let num as Int: self = Double(num)
+        case let num as Int8: self = Double(num)
+        case let num as Int16: self = Double(num)
+        case let num as Int32: self = Double(num)
+        case let num as Int64: self = Double(num)
+        default: return nil
         }
     }
 }

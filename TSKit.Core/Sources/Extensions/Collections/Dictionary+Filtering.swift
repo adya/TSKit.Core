@@ -1,4 +1,3 @@
-// MARK: Dictionary filtering
 public extension Dictionary {
     
     /// Creates a new `Dictionary` by filtering current one using `includeElement` closure.

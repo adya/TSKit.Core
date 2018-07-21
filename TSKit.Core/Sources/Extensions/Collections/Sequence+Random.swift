@@ -1,3 +1,7 @@
+/**
+ * Extensions that add randomization methods
+ */
+
 public extension Collection {
     
     /// Gets random value from the range.
@@ -18,6 +22,9 @@ public extension Collection {
 }
 
 public extension Array {
+    
+    
+    // TODO: Make two methods for mutating and immutable variants.
     
     /// Creates a new array by randomly shuffling elements of current one.
     /// - Returns: An array containing all original elements in shuffled order.
@@ -40,9 +47,8 @@ public extension Array {
     }
 }
 
-
-/// Adds handy random support.
-public extension Range {
+// TODO: Fix this
+extension Range {
     
     /// Gets random value from the interval.
     public var random: Bound {
