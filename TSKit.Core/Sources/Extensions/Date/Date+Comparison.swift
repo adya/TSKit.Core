@@ -18,6 +18,8 @@ public func !=(date1 : Date, date2 : Date) -> Bool {
     return date1.compare(date2) != .orderedSame
 }
 
+// TODO: Enhance min/max to support varying arguments.
+
 /// Finds minimum of two dates by comparing all date components
 public func min(_ x : Date, y: Date) -> Date {
     return (x < y ? x : y)
