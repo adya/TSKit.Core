@@ -16,8 +16,7 @@ public extension BidirectionalCollection {
     /// - Parameter predicate: A closure that takes an element of the sequence as its argument and returns a `Boolean` value indicating whether the element is a match.
     /// - Returns: The `last` element of the sequence that satisfies predicate, or `nil` if there is no element that satisfies `predicate`.
     func lastIndex(where predicate: (Element) throws -> Bool) rethrows -> Index? {
-        first(where: predicate)
-        return reversed().index(where: predicate).flatMap { $0.base - 1 }
+        return try reversed().index(where: predicate).flatMap { self.index(before: $0.base) }
     }
 }
 
@@ -27,6 +26,6 @@ public extension BidirectionalCollection where Element: Equatable {
     /// After using `lastIndex(of:)` to find the last position of a particular element in a collection, you can use it to access the element by subscripting.
     /// - Parameter element: The element to find the last Index
     func lastIndex(of element: Element) -> Index? {
-        return reversed().index(of: element).flatMap { $0.base - 1 }
+        return reversed().index(of: element).flatMap { self.index(before: $0.base) }
     }
 }

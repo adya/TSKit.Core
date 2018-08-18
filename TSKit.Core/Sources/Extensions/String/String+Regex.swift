@@ -14,9 +14,9 @@ public extension String {
         let nsString = self as NSString
         let results = regex.matches(in: self, range: NSRange(location: 0, length: nsString.length))
         return results.map { result in
-            let match = nsString.substring(with: result.rangeAt(0))
-            let groups: [(String, Range<String.Index>)] = (1..<result.numberOfRanges).flatMap {
-                let nsrange = result.rangeAt($0)
+            let match = nsString.substring(with: result.range(at: 0))
+            let groups: [(String, Range<String.Index>)] = (1..<result.numberOfRanges).compactMap {
+                let nsrange = result.range(at: $0)
                 guard nsrange.location != NSNotFound,
                     let range = Range(nsrange, in: self) else {
                         return nil
