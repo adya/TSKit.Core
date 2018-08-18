@@ -28,6 +28,7 @@
 		00063E301FDC6BC400568DFD /* Dictionary+Filtering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00063E2F1FDC6BC400568DFD /* Dictionary+Filtering.swift */; };
 		00063E311FDC6BC400568DFD /* Dictionary+Filtering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00063E2F1FDC6BC400568DFD /* Dictionary+Filtering.swift */; };
 		00063E331FDC6C8D00568DFD /* Sequence+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00063E321FDC6C8D00568DFD /* Sequence+Random.swift */; };
+		000750A42123625100BBC7B5 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000750A32123625100BBC7B5 /* Result.swift */; };
 		005CC779206B908C0043E6CD /* Data+DataSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005CC778206B908C0043E6CD /* Data+DataSize.swift */; };
 		005DF397206A99D900A9BDBB /* DataSize_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DF396206A99D900A9BDBB /* DataSize_Tests.swift */; };
 		0061832E20606B360079DD8C /* UIImage+GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0061832D20606B360079DD8C /* UIImage+GIF.swift */; };
@@ -80,6 +81,7 @@
 		00063E2C1FDC697300568DFD /* Dictionary+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Mapping.swift"; sourceTree = "<group>"; };
 		00063E2F1FDC6BC400568DFD /* Dictionary+Filtering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Filtering.swift"; sourceTree = "<group>"; };
 		00063E321FDC6C8D00568DFD /* Sequence+Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Random.swift"; sourceTree = "<group>"; };
+		000750A32123625100BBC7B5 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		005CC778206B908C0043E6CD /* Data+DataSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+DataSize.swift"; sourceTree = "<group>"; };
 		005DF396206A99D900A9BDBB /* DataSize_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSize_Tests.swift; sourceTree = "<group>"; };
 		0061832D20606B360079DD8C /* UIImage+GIF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+GIF.swift"; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				00A052252102121500A2D648 /* Chaining.swift */,
+				000750A32123625100BBC7B5 /* Result.swift */,
 				00CCB28C1FE6BF6500F1E75C /* Identifiable.swift */,
 				00C2C3791FE3290300721731 /* Structs */,
 				00C2C37B1FE3293400721731 /* Extensions */,
@@ -422,6 +425,7 @@
 				00063E271FDC67A500568DFD /* Sequence+Distinct.swift in Sources */,
 				00A0521F21020CFD00A2D648 /* Collection+Ordering.swift in Sources */,
 				00063E2A1FDC692300568DFD /* Sequence+Grouping.swift in Sources */,
+				000750A42123625100BBC7B5 /* Result.swift in Sources */,
 				00C2C3761FE3286800721731 /* DataSize.swift in Sources */,
 				00A0521921020AA100A2D648 /* Sequence+Filtering.swift in Sources */,
 				005CC779206B908C0043E6CD /* Data+DataSize.swift in Sources */,

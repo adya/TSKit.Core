@@ -12,7 +12,7 @@ public protocol Identifiable {
 public extension Identifiable {
     
     static var identifier: String {
-        return String(describing: self)
+        return String(describing: self).components(separatedBy: ".").last!
     }
     
     var identifier: String {

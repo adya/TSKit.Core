@@ -41,9 +41,9 @@ public extension Array where Element: Equatable {
 
 private extension Array {
     
-    func modifying(_ editabling: (_ copy: inout Array) -> Void) -> Array {
+    func modifying(_ editing: (_ copy: inout Array) -> Void) -> Array {
         var copy = self
-        editabling(&copy)
+        editing(&copy)
         return copy
     }
 }
