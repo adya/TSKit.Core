@@ -1,6 +1,6 @@
 /// A collection extension that adds `move` method.
 
-public extension Collection {
+public extension Array {
     
     /// Moves element at given `index` to new position at `newIndex`.
     /// - Parameter index: An index of the element to be moved.

@@ -2,7 +2,7 @@
  * A set of extension methods that add immutable counterparts of mutating methods `append`, `remove`, `move`.
  */
 
-public extension Collection {
+public extension Array {
     
     /// Creates new array with an element at given `index` moved to new position at `newIndex`.
     /// - Parameter index: An index of the element to be moved.
