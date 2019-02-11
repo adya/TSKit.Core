@@ -5,24 +5,24 @@ import Foundation
 public struct DataSize<IntegerType>: Comparable where IntegerType: FixedWidthInteger {
     
     /// Bytes portion of the size.
-    let bytes: IntegerType
+    public let bytes: IntegerType
     
     /// Kilobytes portion of the size.
-    let kilobytes: IntegerType
+    public let kilobytes: IntegerType
     
     /// Megabytes portion of the size.
-    let megabytes: IntegerType
+    public let megabytes: IntegerType
     
     /// Gigabytes portion of the size.
-    let gigabytes: IntegerType
+    public let gigabytes: IntegerType
     
     /// Terabytes portion of the size.
-    let terabytes: IntegerType
+    public let terabytes: IntegerType
     
     /// Initializes `DataSize` object with specified units.
     /// - Note: Any overflows will be resolved and affected units will be adjusted.
     ///         e.g. `1025 kilobytes` will be represented as `1 megabyte` and `1 kilobyte`.
-    init(terabytes: IntegerType = 0,
+    public init(terabytes: IntegerType = 0,
          gigabytes: IntegerType = 0,
          megabytes: IntegerType = 0,
          kilobytes: IntegerType = 0,
@@ -132,7 +132,8 @@ extension DataSize: CustomStringConvertible {
             "\(kilobytes) \(Unit.kilobyte.label), " +
         "\(bytes) \(Unit.byte.label)"
     }
-    
+
+    /// String representation of the size with the non-zero units only.
     public var shortDescription: String {
         var res = ""
         if bytes > 0 {
