@@ -53,7 +53,7 @@ private extension UIImage {
     
     static func animatedImage(from source: CGImageSource) -> UIImage? {
         let frames: [(image: CGImage, delay: Int)]
-        frames = (0..<CGImageSourceGetCount(source)).flatMap {
+        frames = (0..<CGImageSourceGetCount(source)).compactMap {
             guard let image = CGImageSourceCreateImageAtIndex(source, $0, nil) else { return nil }
             
             let delaySeconds = source.delayForImage(atIndex: $0)

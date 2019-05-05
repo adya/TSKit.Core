@@ -5,7 +5,7 @@
 
 import UIKit
 
-extension UIImagePickerControllerSourceType {
+extension UIImagePickerController.SourceType {
 
     /// Checks whether `UIImagePickerController` supports given `mediaType`.
     /// - Parameter mediaType: Media type key. (`kUTType*` from `UTCoreTypes`).

@@ -102,12 +102,12 @@ public extension DataSize {
     static func -(lhs: DataSize, rhs: DataSize) -> DataSize {
         let lBytes = lhs.totalBytes
         let rBytes = rhs.totalBytes
-        let result = lBytes > rBytes ? lBytes.unsafeSubtracting(rBytes) : rBytes.unsafeSubtracting(lBytes)
+        let result = lBytes > rBytes ? lBytes.subtractingReportingOverflow(rBytes).partialValue : rBytes.subtractingReportingOverflow(lBytes).partialValue
         return DataSize(bytes: result)
     }
     
     static func +(lhs: DataSize, rhs: DataSize) -> DataSize {
-        return DataSize(bytes: lhs.totalBytes.unsafeAdding(rhs.totalBytes))
+        return DataSize(bytes: lhs.totalBytes.addingReportingOverflow(rhs.totalBytes).partialValue)
     }
     
     static func -=(lhs: inout DataSize, rhs: DataSize) {

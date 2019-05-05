@@ -14,7 +14,7 @@ extension String {
     /// - Returns: Size of the bounding rectangle which fits content of the string.
     func size(with font: UIFont, constrainingWidth maxWidth: CGFloat = .greatestFiniteMagnitude, constrainingHeight maxHeight: CGFloat = .greatestFiniteMagnitude) -> CGSize {
         let maxSize = CGSize(width: maxWidth, height: maxHeight)
-        let attributes: [NSAttributedStringKey : Any] = [NSAttributedStringKey.font : font]
+        let attributes: [NSAttributedString.Key : Any] = [.font : font]
         
         return self.boundingRect(with: maxSize,
                                  options: [.usesFontLeading, .usesLineFragmentOrigin],

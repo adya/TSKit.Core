@@ -14,7 +14,7 @@ public extension Collection {
             return self[Int(arc4random_uniform(end - start) + start) as! Self.Index]
         }
         var generator = self.makeIterator()
-        var count = arc4random_uniform(UInt32(self.count as! Int))
+        var count = arc4random_uniform(UInt32(self.count))
         while count > 0 {
             let _ = generator.next()
             count = count - 1

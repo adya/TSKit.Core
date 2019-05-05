@@ -29,16 +29,16 @@ public extension Array where Element: Equatable {
      - Note: Useful when you need to update value in the array and don't know its index.
      - Returns: An element contained in the array.
      */
-    public subscript(element: Element) -> Element? {
+    subscript(element: Element) -> Element? {
         get {
-            if let index = self.index(of: element) {
+            if let index = self.firstIndex(of: element) {
                 return self[index]
             } else {
                 return nil
             }
         }
         set {
-            if let index = self.index(of: element) {
+            if let index = self.firstIndex(of: element) {
                 if let newValue = newValue {
                     self[index] = newValue
                 } else {
