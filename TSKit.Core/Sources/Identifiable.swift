@@ -1,3 +1,8 @@
+/// - Since: 01/20/2018
+/// - Author: Arkadii Hlushchevskyi
+/// - Copyright: © 2019. Arkadii Hlushchevskyi.
+/// - Seealso: https://github.com/adya/TSKit.Core/blob/master/LICENSE.md
+
 /// Defines a way to identify any object.
 public protocol Identifiable {
     
@@ -19,3 +24,4 @@ public extension Identifiable {
         return type(of: self).identifier
     }
 }
+

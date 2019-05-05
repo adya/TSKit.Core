@@ -1,7 +1,9 @@
-/**
- * Extensions that add randomization methods
- */
+/// - Since: 01/20/2018
+/// - Author: Arkadii Hlushchevskyi
+/// - Copyright: © 2019. Arkadii Hlushchevskyi.
+/// - Seealso: https://github.com/adya/TSKit.Core/blob/master/LICENSE.md
 
+/// Extensions that add randomization methods
 public extension Collection {
     
     /// Gets random value from the range.
