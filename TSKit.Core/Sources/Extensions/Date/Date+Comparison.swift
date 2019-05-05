@@ -1,3 +1,8 @@
+/// - Since: 01/20/2018
+/// - Author: Arkadii Hlushchevskyi
+/// - Copyright: © 2019. Arkadii Hlushchevskyi.
+/// - Seealso: https://github.com/adya/TSKit.Core/blob/master/LICENSE.md
+
 /// Checks whether the first date is greater than or equal to the second date by comparing all date components
 @available(iOS 8.0, *)
 public func >=(date1 : Date, date2 : Date) -> Bool {

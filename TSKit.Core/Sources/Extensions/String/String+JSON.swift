@@ -1,6 +1,9 @@
-import Foundation
-///  Created by AdYa on 9/20/16.
+/// - Since: 01/20/2018
+/// - Author: Arkadii Hlushchevskyi
+/// - Copyright: © 2019. Arkadii Hlushchevskyi.
+/// - Seealso: https://github.com/adya/TSKit.Core/blob/master/LICENSE.md
 
+import Foundation
 
 public extension String {
     

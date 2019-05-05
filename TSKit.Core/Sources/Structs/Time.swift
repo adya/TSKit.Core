@@ -1,3 +1,8 @@
+/// - Since: 01/20/2018
+/// - Author: Arkadii Hlushchevskyi
+/// - Copyright: © 2019. Arkadii Hlushchevskyi.
+/// - Seealso: https://github.com/adya/TSKit.Core/blob/master/LICENSE.md
+
 // TODO: Refactor to use Int64 only when needed.
 // TODO: Add support for `hours`.
 

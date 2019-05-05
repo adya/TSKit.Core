@@ -1,7 +1,9 @@
-/*
- * A set of extension methods that add immutable counterparts of mutating methods `append`, `remove`, `move`.
- */
+/// - Since: 01/20/2018
+/// - Author: Arkadii Hlushchevskyi
+/// - Copyright: © 2019. Arkadii Hlushchevskyi.
+/// - Seealso: https://github.com/adya/TSKit.Core/blob/master/LICENSE.md
 
+/// A set of extension methods that add immutable counterparts of mutating methods `append`, `remove`, `move`.
 public extension Array {
     
     /// Creates new array with an element at given `index` moved to new position at `newIndex`.
