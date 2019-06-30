@@ -5,7 +5,7 @@
 
 import Dispatch
 
-extension DispatchSemaphore {
+public extension DispatchSemaphore {
 
     func inLock<Result>(_ block: () throws -> Result) rethrows -> Result {
         defer { self.signal() }

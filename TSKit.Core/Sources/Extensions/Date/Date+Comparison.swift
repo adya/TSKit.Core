@@ -3,6 +3,17 @@
 /// - Copyright: © 2019. Arkadii Hlushchevskyi.
 /// - Seealso: https://github.com/adya/TSKit.Core/blob/master/LICENSE.md
 
+public extension Date {
+    
+    /// Returns boolean value indicating whether the difference between specified date and `self` is bigger than or
+    /// equals `days` value.
+    /// - Parameter date: `Date` to be counted to.
+    /// - Returns: `true` if difference is bigger than or equals `days` value, otherwise `false`.
+    func isLater(than date: Date, by days: Int) -> Bool {
+        return Calendar.current.dateComponents([.day], from: self, to: date).day ?? 0 >= days
+    }
+}
+
 /// Checks whether the first date is greater than or equal to the second date by comparing all date components
 @available(iOS 8.0, *)
 public func >=(date1 : Date, date2 : Date) -> Bool {

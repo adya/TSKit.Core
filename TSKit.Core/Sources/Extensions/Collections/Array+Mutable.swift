@@ -10,7 +10,7 @@ public extension Array {
     /// - Parameter index: An index of the element to be moved.
     /// - Parameter newIndex: An index of the position in the array where element should be placed.
     /// - Returns: An array with the element moved to new position.
-    func moving(from index: Int, to newIndex: Int) -> Array {
+    func moving(from index: Index, to newIndex: Index) -> Array {
         return modifying { $0.move(from: index, to: newIndex) }
     }
     

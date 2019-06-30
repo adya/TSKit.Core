@@ -36,7 +36,7 @@ public extension Array {
             guard case let b = Int(arc4random_uniform(UInt32(count - a))) + a, b != a else {
                 return
             }
-            shuffled[a] = self[b]
+            shuffled.move(from: a, to: b)
         }
         return shuffled
     }

@@ -27,7 +27,7 @@ public extension String {
                     let range = Range(nsrange, in: self) else {
                         return nil
                 }
-                return (self.substring(with: range), range)
+                return (String(self[range]), range)
                 
             }
             return (match: match, groups: groups)

@@ -18,6 +18,24 @@ public extension Date {
         let comps = Calendar.current.dateComponents(Set<Calendar.Component>(dateComponents), from: self)
         return Calendar.current.date(from: comps)!
     }
+    
+    /// Returns date with date components only.
+    @available(iOS 8.0, *)
+    var onlyDate: Date {
+        return self.date(with: [.year, .month, .day])
+    }
+    
+    /// Returns date with time components only.
+    @available(iOS 8.0, *)
+    var onlyTime: Date {
+        return self.date(with: [.hour, .minute, .second])
+    }
+    
+    /// Returns date with time components only including nanoseconds.
+    @available(iOS 8.0, *)
+    var preciseTime: Date {
+        return self.date(with: [.hour, .minute, .second, .nanosecond])
+    }
 }
 
 /// Subtracts given components from the date and returns resulting date.

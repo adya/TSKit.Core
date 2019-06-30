@@ -44,6 +44,21 @@ public extension String {
         self = stringDate
     }
     
+    init?(from date: Date,
+                 dateStyle: DateFormatter.Style = .short,
+                 timeStyle: DateFormatter.Style = .short,
+                 in timezone: TimeZone = .current) {
+        let formatter = DateFormatter()
+        formatter.dateStyle = dateStyle
+        formatter.timeStyle = timeStyle
+        formatter.timeZone = timezone
+        
+        let stringDate = formatter.string(from: date)
+        guard !stringDate.isEmpty else { return nil }
+        
+        self = stringDate
+    }
+    
     @available(iOS 8.0, *)
     public func reformattingDate(formattedWith sourceFormat: String,
                                  `in` sourceTimezone: TimeZone = TimeZone.current,

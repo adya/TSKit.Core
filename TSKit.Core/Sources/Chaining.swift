@@ -7,7 +7,7 @@
 // TODO: Implement different combinations of optional and non-optional inputs and outputs.
 
 precedencegroup ChainingPrecedence {
-    lowerThan: TernaryPrecedence
+    lowerThan: AdditionPrecedence
     higherThan: AssignmentPrecedence
     associativity: left
 }

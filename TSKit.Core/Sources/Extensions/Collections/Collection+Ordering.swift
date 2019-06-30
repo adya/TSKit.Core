@@ -20,7 +20,7 @@ public extension Collection {
         let isMatching = predicate(self[mid])
         guard distance > 1 else { return isMatching ? range.upperBound : range.lowerBound }
         let myRange = isMatching
-            ? mid..<range.upperBound
+            ? index(mid, offsetBy: 1)..<range.upperBound
             : range.lowerBound..<mid
         return orderedIndex(where: predicate, in: myRange)
     }

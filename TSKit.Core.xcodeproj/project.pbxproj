@@ -52,6 +52,12 @@
 		00C2C3871FE32D2A00721731 /* Date+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C2C3861FE32D2A00721731 /* Date+Components.swift */; };
 		00C2C3891FE32DF300721731 /* Date+Comparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C2C3881FE32DF300721731 /* Date+Comparison.swift */; };
 		00CCB28D1FE6BF6500F1E75C /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CCB28C1FE6BF6500F1E75C /* Identifiable.swift */; };
+		00CCC554228484530035A700 /* Set+Filtering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CCC553228484530035A700 /* Set+Filtering.swift */; };
+		00CCC556228486230035A700 /* Transformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CCC555228486230035A700 /* Transformation.swift */; };
+		00CCC5582284890E0035A700 /* Array+Joining.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CCC5572284890E0035A700 /* Array+Joining.swift */; };
+		00CCC55F2285FA4D0035A700 /* DispatchQueue+Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CCC55E2285FA4D0035A700 /* DispatchQueue+Main.swift */; };
+		00CCC5612285FBDA0035A700 /* ImageMetaReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CCC5602285FBDA0035A700 /* ImageMetaReader.swift */; };
+		00CCC58A2286D1990035A700 /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CCC5892286D1990035A700 /* Configurable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +111,12 @@
 		00C2C3861FE32D2A00721731 /* Date+Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Components.swift"; sourceTree = "<group>"; };
 		00C2C3881FE32DF300721731 /* Date+Comparison.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Comparison.swift"; sourceTree = "<group>"; };
 		00CCB28C1FE6BF6500F1E75C /* Identifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
+		00CCC553228484530035A700 /* Set+Filtering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Set+Filtering.swift"; sourceTree = "<group>"; };
+		00CCC555228486230035A700 /* Transformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transformation.swift; sourceTree = "<group>"; };
+		00CCC5572284890E0035A700 /* Array+Joining.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Joining.swift"; sourceTree = "<group>"; };
+		00CCC55E2285FA4D0035A700 /* DispatchQueue+Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Main.swift"; sourceTree = "<group>"; };
+		00CCC5602285FBDA0035A700 /* ImageMetaReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageMetaReader.swift; sourceTree = "<group>"; };
+		00CCC5892286D1990035A700 /* Configurable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configurable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,8 +180,11 @@
 			isa = PBXGroup;
 			children = (
 				00A052252102121500A2D648 /* Chaining.swift */,
+				00CCC555228486230035A700 /* Transformation.swift */,
 				000750A32123625100BBC7B5 /* Result.swift */,
 				00CCB28C1FE6BF6500F1E75C /* Identifiable.swift */,
+				00CCC5892286D1990035A700 /* Configurable.swift */,
+				00CCC5602285FBDA0035A700 /* ImageMetaReader.swift */,
 				00C2C3791FE3290300721731 /* Structs */,
 				00C2C37B1FE3293400721731 /* Extensions */,
 			);
@@ -213,7 +228,7 @@
 		00C2C37B1FE3293400721731 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				00A0522F21037A3700A2D648 /* DispatchSemaphore+Lock.swift */,
+				00CCC55D2285FA1E0035A700 /* Dispatch */,
 				00A052292102126300A2D648 /* UIImagePickerControllerSourceType+SupportedMediaTypes.swift */,
 				00A0522421020F6500A2D648 /* Numeric */,
 				005CC777206B90790043E6CD /* Data */,
@@ -262,6 +277,8 @@
 				00A0521C21020CA100A2D648 /* Array+Movable.swift */,
 				00A0521E21020CFD00A2D648 /* Collection+Ordering.swift */,
 				00A0521A21020BA500A2D648 /* Array+Mutable.swift */,
+				00CCC553228484530035A700 /* Set+Filtering.swift */,
+				00CCC5572284890E0035A700 /* Array+Joining.swift */,
 			);
 			path = Collections;
 			sourceTree = "<group>";
@@ -274,6 +291,15 @@
 				00063E171FDC52B100568DFD /* UIColor+UInt8.swift */,
 			);
 			path = UIColor;
+			sourceTree = "<group>";
+		};
+		00CCC55D2285FA1E0035A700 /* Dispatch */ = {
+			isa = PBXGroup;
+			children = (
+				00A0522F21037A3700A2D648 /* DispatchSemaphore+Lock.swift */,
+				00CCC55E2285FA4D0035A700 /* DispatchQueue+Main.swift */,
+			);
+			path = Dispatch;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -334,7 +360,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Arkadiy Glushchevsky";
 				TargetAttributes = {
 					00063DF81FDC4F6000568DFD = {
@@ -411,6 +437,7 @@
 				00C2C3831FE32C6900721731 /* String+Regex.swift in Sources */,
 				00A0523021037A3800A2D648 /* DispatchSemaphore+Lock.swift in Sources */,
 				00063E181FDC52B100568DFD /* UIColor+UInt8.swift in Sources */,
+				00CCC55F2285FA4D0035A700 /* DispatchQueue+Main.swift in Sources */,
 				00CCB28D1FE6BF6500F1E75C /* Identifiable.swift in Sources */,
 				00C2C3891FE32DF300721731 /* Date+Comparison.swift in Sources */,
 				00A0521D21020CA100A2D648 /* Array+Movable.swift in Sources */,
@@ -418,21 +445,26 @@
 				00C2C3851FE32CD500721731 /* Date+Format.swift in Sources */,
 				00A0522121020F0F00A2D648 /* String+HTML.swift in Sources */,
 				00C2C37F1FE32B2800721731 /* String+NSRange.swift in Sources */,
+				00CCC556228486230035A700 /* Transformation.swift in Sources */,
 				00C2C3741FE322FA00721731 /* ShadedColor.swift in Sources */,
 				00C2C3811FE32B5800721731 /* String+CGSize.swift in Sources */,
 				00063E241FDC677700568DFD /* BidirectionalCollection+Last.swift in Sources */,
 				00063E211FDC668F00568DFD /* UInt+String.swift in Sources */,
 				00063E271FDC67A500568DFD /* Sequence+Distinct.swift in Sources */,
+				00CCC58A2286D1990035A700 /* Configurable.swift in Sources */,
 				00A0521F21020CFD00A2D648 /* Collection+Ordering.swift in Sources */,
 				00063E2A1FDC692300568DFD /* Sequence+Grouping.swift in Sources */,
 				000750A42123625100BBC7B5 /* Result.swift in Sources */,
 				00C2C3761FE3286800721731 /* DataSize.swift in Sources */,
 				00A0521921020AA100A2D648 /* Sequence+Filtering.swift in Sources */,
 				005CC779206B908C0043E6CD /* Data+DataSize.swift in Sources */,
+				00CCC5582284890E0035A700 /* Array+Joining.swift in Sources */,
+				00CCC554228484530035A700 /* Set+Filtering.swift in Sources */,
 				00A052262102121500A2D648 /* Chaining.swift in Sources */,
 				00063E2D1FDC697300568DFD /* Dictionary+Mapping.swift in Sources */,
 				00A0522A2102126300A2D648 /* UIImagePickerControllerSourceType+SupportedMediaTypes.swift in Sources */,
 				00063E151FDC517900568DFD /* String+JSON.swift in Sources */,
+				00CCC5612285FBDA0035A700 /* ImageMetaReader.swift in Sources */,
 				00063E301FDC6BC400568DFD /* Dictionary+Filtering.swift in Sources */,
 				00A0522321020F5E00A2D648 /* BinaryFloatingPoint+Rounded.swift in Sources */,
 				00063E331FDC6C8D00568DFD /* Sequence+Random.swift in Sources */,
@@ -482,6 +514,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -489,6 +522,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -542,6 +576,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -549,6 +584,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
