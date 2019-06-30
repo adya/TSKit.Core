@@ -4,7 +4,7 @@ import Foundation
 
 class DataSize_Tests: XCTestCase {
     
-    var size = DataSize()
+    var size = DataSize<Int64>()
     
     override func setUp() {
         size = DataSize(terabytes: 0, gigabytes: 1023, megabytes: 1023, kilobytes: 1023, bytes: 1023)

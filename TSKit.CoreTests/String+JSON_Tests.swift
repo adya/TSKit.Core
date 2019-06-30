@@ -1,4 +1,5 @@
 import XCTest
+@testable import TSKit_Core
 
 class String_JSON_Tests: XCTestCase {
     

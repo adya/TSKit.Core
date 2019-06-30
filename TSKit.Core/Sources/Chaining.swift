@@ -63,6 +63,14 @@ public func =><A, B>(_ lhs: @escaping (A) -> B, _ rhs: @escaping (B) -> Void) ->
     }
 }
 
+public func =><A>(_ lhs: @escaping () -> A, _ rhs: @escaping (A) -> Void) -> () -> A {
+    return {
+        let a = lhs()
+        rhs(a)
+        return a
+    }
+}
+
 public func =>?<A, B>(_ lhs: @escaping (A) -> B?, _ rhs: @escaping (B) -> Void) -> (A) -> B? {
     return {
         let b = lhs($0)
