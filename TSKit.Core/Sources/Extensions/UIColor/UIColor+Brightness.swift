@@ -11,7 +11,7 @@ public extension UIColor {
     ///                               Should be in `(0...1)` range.
     /// - Parameter preserveAlpha: Flag indicating whether or not created `UIColor` should inherit alpha component.
     /// - Returns: Brighten `UIColor` or `nil` if `correctionFactor` was invalid.
-    public func brighten(by correctionFactor : Float, preserveAlpha : Bool = true) -> UIColor? {
+    func brighten(by correctionFactor : Float, preserveAlpha : Bool = true) -> UIColor? {
         guard (0.0...1.0).contains(correctionFactor) else {
             print("Color '\(self)' can be lightened only with values in range (0; 1]")
             return nil
@@ -24,7 +24,7 @@ public extension UIColor {
     ///                               Should be in `(0...1)` range.
     /// - Parameter preserveAlpha: Flag indicating whether or not created `UIColor` should inherit alpha component.
     /// - Returns: Darken `UIColor` or `nil` if `correctionFactor` was invalid.
-    public func darken(by correctionFactor : Float, preserveAlpha : Bool = true) -> UIColor? {
+    func darken(by correctionFactor : Float, preserveAlpha : Bool = true) -> UIColor? {
         return changeBrightness(by: -correctionFactor, preserveAlpha: preserveAlpha)
     }
     
@@ -57,7 +57,7 @@ public extension UIColor {
     /// Extracts color components from `UIColor`.
     /// - Attention: Method may fail on specific `UIColor` internal subclasses thus returning `nil`.
     /// - Returns: Tuple with color components.
-    public func getARGB() -> (red: UInt8, green: UInt8, blue: UInt8, alpha: UInt8)? {
+    func getARGB() -> (red: UInt8, green: UInt8, blue: UInt8, alpha: UInt8)? {
         var fRed : CGFloat = 0
         var fGreen : CGFloat = 0
         var fBlue : CGFloat = 0

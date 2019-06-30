@@ -5,7 +5,7 @@
 
 import Foundation
 
-extension String {
+public extension String {
     
     /// Calculates size of string's bounding rectangle using specified `font` and constrained width and height.
     /// - Parameter font: Desired `UIFont` of the string to be bounded.

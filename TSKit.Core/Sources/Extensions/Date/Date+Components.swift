@@ -14,7 +14,7 @@ public extension Date {
     
     /// Creates new date by extracting specified date components from `self`.
     @available(iOS 8.0, *)
-    public func date(with dateComponents: [Calendar.Component]) -> Date {
+    func date(with dateComponents: [Calendar.Component]) -> Date {
         let comps = Calendar.current.dateComponents(Set<Calendar.Component>(dateComponents), from: self)
         return Calendar.current.date(from: comps)!
     }

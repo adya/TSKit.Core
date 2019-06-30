@@ -27,6 +27,7 @@ public extension Array where Element: Equatable {
      - Parameter element: An element to be found.
      - Note: `Element` must conform to `Equatable`.
      - Note: Useful when you need to update value in the array and don't know its index.
+     - Complexity: `O(n)`, where `n` is the length of the collection.
      - Returns: An element contained in the array.
      */
     subscript(element: Element) -> Element? {

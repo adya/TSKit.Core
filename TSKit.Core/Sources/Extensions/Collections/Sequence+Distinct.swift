@@ -7,7 +7,7 @@ public extension Sequence where Iterator.Element: Hashable {
     
     /// Filters duplicated `Hashable` elements of `Sequence`.
     /// - Returns: An array containing only distinct elements of the `Sequence`.
-    public var distinct: [Iterator.Element] {
+    var distinct: [Iterator.Element] {
         return Array(Set(self))
     }
 }
@@ -16,7 +16,7 @@ public extension Sequence where Iterator.Element: Equatable {
     
     /// Filters duplicated `Equatable` elements of `Sequence`.
     /// - Returns: An array containing only distinct elements of the `Sequence`.
-    public var distinct: [Iterator.Element] {
+    var distinct: [Iterator.Element] {
         return reduce([]) { uniqueElements, element in
             uniqueElements.contains(element)
                 ? uniqueElements
@@ -32,7 +32,7 @@ public extension Sequence {
     /// - Note: Key property must conform to `Equatable` protocol.
     /// - Parameter key: A closure providing a key property of the element to compare.
     /// - Returns: An array containing only distinct elements of the `Sequence`.
-    public func distinct<T>(by key: (Self.Iterator.Element) -> T?) -> [Iterator.Element] where T : Equatable {
+    func distinct<T>(by key: (Self.Iterator.Element) -> T?) -> [Iterator.Element] where T : Equatable {
         return reduce(([], [])) { (unique: ([T], [Iterator.Element]), element: Iterator.Element) in
             guard let key = key(element) else {
                 return unique

@@ -8,7 +8,7 @@ import Foundation
 @available(iOS 8.0, *)
 public extension Date {
     
-    public init?(from dateString: String,
+    init?(from dateString: String,
                  formattedWith targetFormat: String,
                  in timezone: TimeZone = TimeZone.current) {
         let formatter = DateFormatter()
@@ -19,7 +19,7 @@ public extension Date {
         self = date
     }
     
-    public func toString(withFormat targetFormat : String,
+    func toString(withFormat targetFormat : String,
                          andTimezone timezone : TimeZone = TimeZone.current) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = targetFormat
@@ -31,7 +31,7 @@ public extension Date {
 @available(iOS 8.0, *)
 public extension String {
     
-    public init?(from date: Date,
+    init?(from date: Date,
                  formattedWith dateFormat: String,
                  in timezone: TimeZone = TimeZone.current) {
         
@@ -60,7 +60,7 @@ public extension String {
     }
     
     @available(iOS 8.0, *)
-    public func reformattingDate(formattedWith sourceFormat: String,
+    func reformattingDate(formattedWith sourceFormat: String,
                                  `in` sourceTimezone: TimeZone = TimeZone.current,
                                  toStringFormattedWith targetFormat: String,
                                  `in` targetTimezone: TimeZone = TimeZone.current) -> String? {
@@ -71,7 +71,7 @@ public extension String {
     }
     
     @available(iOS 8.0, *)
-    public mutating func reformatDate(formattedWith sourceFormat: String,
+    mutating func reformatDate(formattedWith sourceFormat: String,
                                       `in` sourceTimezone: TimeZone = TimeZone.current,
                                       toStringFormattedWith targetFormat: String,
                                       `in` targetTimezone: TimeZone = TimeZone.current) {

@@ -10,7 +10,7 @@ public extension Sequence {
     /// - Parameter value: A closure that provides a property of `Sequence`'s element to be used as a dictioanry value.
     /// - Note: `key` must be unique in order to avoid collisions.
     /// - Returns: `Dictionary` containing key-value pairs.
-    public func map<KeyType, ValueType>(key: (Iterator.Element) throws -> KeyType,
+    func map<KeyType, ValueType>(key: (Iterator.Element) throws -> KeyType,
                                         value: (Iterator.Element) throws -> ValueType) -> [KeyType : ValueType] where KeyType : Hashable {
         let results: [KeyType : ValueType] = self.reduce([:]) {
             guard let key = try? key($1),
@@ -23,16 +23,6 @@ public extension Sequence {
         }
         return results
     }
-    /// Maps `Sequence` to a `Dictionary` using `key` and `value` closures to build resulting `dictionary`.
-    /// - Parameter key: A closure that provides a property of `Sequence`'s element to be used as a dictioanry key.
-    /// - Parameter value: A closure that provides a property of `Sequence`'s element to be used as a dictioanry value.
-    /// - Note: `key` must be unique in order to avoid collisions.
-    /// - Returns: `Dictionary` containing key-value pairs.
-    func map<KeyType, ValueType>(key: (Iterator.Element) throws -> KeyType,
-                                        value: (Iterator.Element) throws -> ValueType) -> [KeyType : ValueType] where KeyType : Hashable {
-        return compactMap(key: { try key($0) },
-                          value: { try value($0) })
-    }
 }
 
 public extension Dictionary {
@@ -43,7 +33,7 @@ public extension Dictionary {
     ///                        In case of either `key`, `value` or tuple is `nil` transformation fails
     ///                        and current key-value pair will be skipped.
     /// - Returns: A new `dictionary` containing successfully transformed key-value pairs.
-    public func flatMap<NewKeyType, NewValueType>(_ transform: (Iterator.Element) throws -> (NewKeyType?, NewValueType?)?) rethrows -> [NewKeyType : NewValueType] {
+    func flatMap<NewKeyType, NewValueType>(_ transform: (Iterator.Element) throws -> (NewKeyType?, NewValueType?)?) rethrows -> [NewKeyType : NewValueType] {
         var dict = [NewKeyType : NewValueType]()
         for pair in self {
             if let transformed = try transform(pair),

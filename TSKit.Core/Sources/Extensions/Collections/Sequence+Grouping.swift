@@ -9,7 +9,7 @@ public extension Sequence {
     /// - Note: `key` must conform to `Hashable` protocol.
     /// - Parameter key: A closure that provides a key property of `Sequence` elements to group by.
     /// - Returns: A dictionary with all elements grouped by specified `key`.
-    public func group<KeyType:Hashable>(by key: (Iterator.Element) -> KeyType?) -> [KeyType : [Iterator.Element]] {
+    func group<KeyType:Hashable>(by key: (Iterator.Element) -> KeyType?) -> [KeyType : [Iterator.Element]] {
         let results: [KeyType : Array<Iterator.Element>] = self.reduce([:]) {
             guard let key = key($1) else {
                 return $0

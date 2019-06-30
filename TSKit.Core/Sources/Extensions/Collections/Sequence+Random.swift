@@ -7,7 +7,7 @@
 public extension Collection {
     
     /// Gets random value from the range.
-    public var random: Self.Element {
+    var random: Self.Element {
         if let startIndex = self.startIndex as? Int {
             let start = UInt32(startIndex)
             let end = UInt32(self.endIndex as! Int)
@@ -30,7 +30,7 @@ public extension Array {
     
     /// Creates a new array by randomly shuffling elements of current one.
     /// - Returns: An array containing all original elements in shuffled order.
-    public var shuffled: Array {
+    var shuffled: Array {
         var shuffled = self
         indices.dropLast().forEach { a in
             guard case let b = Int(arc4random_uniform(UInt32(count - a))) + a, b != a else {
@@ -44,7 +44,7 @@ public extension Array {
     /// Creates a new array containing `n` elements from the original array picked up randomly.
     /// - Parameter count: Number of elements to be returned.
     /// - Returns: An array containing `n` elements from current one.
-    public func random(_ count: Int) -> Array {
+    func random(_ count: Int) -> Array {
         return Array(shuffled.prefix(count))
     }
 }

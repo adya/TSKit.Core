@@ -5,7 +5,8 @@
 
 import Foundation
 
-extension String {
+public extension String {
+    
     func nsRange(from range: Range<String.Index>) -> NSRange? {
         guard let from = range.lowerBound.samePosition(in: utf16),
         let to = range.upperBound.samePosition(in: utf16) else {

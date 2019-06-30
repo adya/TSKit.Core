@@ -3,7 +3,7 @@
 /// - Copyright: © 2019. Arkadii Hlushchevskyi.
 /// - Seealso: https://github.com/adya/TSKit.Core/blob/master/LICENSE.md
 
-extension UInt {
+public extension UInt {
     
     /// Initializes `UInt` value with `string` converting it to number in specified radix.
     init?(string: String, radix: UInt) {
