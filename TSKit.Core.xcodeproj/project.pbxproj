@@ -29,6 +29,11 @@
 		00063E311FDC6BC400568DFD /* Dictionary+Filtering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00063E2F1FDC6BC400568DFD /* Dictionary+Filtering.swift */; };
 		00063E331FDC6C8D00568DFD /* Sequence+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00063E321FDC6C8D00568DFD /* Sequence+Random.swift */; };
 		000750A42123625100BBC7B5 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000750A32123625100BBC7B5 /* Result.swift */; };
+		0007A6EF2346460B001764DE /* DictionaryEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0007A6ED2346460B001764DE /* DictionaryEncoder.swift */; };
+		0007A6F02346460B001764DE /* DictionaryDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0007A6EE2346460B001764DE /* DictionaryDecoder.swift */; };
+		0007A6F3234646C9001764DE /* String+Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0007A6F2234646C9001764DE /* String+Empty.swift */; };
+		0007A6F5234646D8001764DE /* Collection+Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0007A6F4234646D8001764DE /* Collection+Empty.swift */; };
+		0007A6F7234646EB001764DE /* Numeric+Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0007A6F6234646EB001764DE /* Numeric+Empty.swift */; };
 		005CC779206B908C0043E6CD /* Data+DataSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005CC778206B908C0043E6CD /* Data+DataSize.swift */; };
 		005DF397206A99D900A9BDBB /* DataSize_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DF396206A99D900A9BDBB /* DataSize_Tests.swift */; };
 		0061832E20606B360079DD8C /* UIImage+GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0061832D20606B360079DD8C /* UIImage+GIF.swift */; };
@@ -107,6 +112,11 @@
 		00063E2F1FDC6BC400568DFD /* Dictionary+Filtering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Filtering.swift"; sourceTree = "<group>"; };
 		00063E321FDC6C8D00568DFD /* Sequence+Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Random.swift"; sourceTree = "<group>"; };
 		000750A32123625100BBC7B5 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		0007A6ED2346460B001764DE /* DictionaryEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryEncoder.swift; sourceTree = "<group>"; };
+		0007A6EE2346460B001764DE /* DictionaryDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryDecoder.swift; sourceTree = "<group>"; };
+		0007A6F2234646C9001764DE /* String+Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Empty.swift"; sourceTree = "<group>"; };
+		0007A6F4234646D8001764DE /* Collection+Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Empty.swift"; sourceTree = "<group>"; };
+		0007A6F6234646EB001764DE /* Numeric+Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Numeric+Empty.swift"; sourceTree = "<group>"; };
 		005CC778206B908C0043E6CD /* Data+DataSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+DataSize.swift"; sourceTree = "<group>"; };
 		005DF396206A99D900A9BDBB /* DataSize_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSize_Tests.swift; sourceTree = "<group>"; };
 		0061832D20606B360079DD8C /* UIImage+GIF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+GIF.swift"; sourceTree = "<group>"; };
@@ -211,10 +221,20 @@
 				00CCB28C1FE6BF6500F1E75C /* Identifiable.swift */,
 				00CCC5892286D1990035A700 /* Configurable.swift */,
 				00CCC5602285FBDA0035A700 /* ImageMetaReader.swift */,
+				0007A6F123464613001764DE /* Coding */,
 				00C2C3791FE3290300721731 /* Structs */,
 				00C2C37B1FE3293400721731 /* Extensions */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		0007A6F123464613001764DE /* Coding */ = {
+			isa = PBXGroup;
+			children = (
+				0007A6EE2346460B001764DE /* DictionaryDecoder.swift */,
+				0007A6ED2346460B001764DE /* DictionaryEncoder.swift */,
+			);
+			path = Coding;
 			sourceTree = "<group>";
 		};
 		005CC777206B90790043E6CD /* Data */ = {
@@ -237,6 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				00A0522221020F5E00A2D648 /* BinaryFloatingPoint+Rounded.swift */,
+				0007A6F6234646EB001764DE /* Numeric+Empty.swift */,
 			);
 			path = Numeric;
 			sourceTree = "<group>";
@@ -285,6 +306,7 @@
 				00063E141FDC517900568DFD /* String+JSON.swift */,
 				00C2C3821FE32C6900721731 /* String+Regex.swift */,
 				00A0522021020F0F00A2D648 /* String+HTML.swift */,
+				0007A6F2234646C9001764DE /* String+Empty.swift */,
 			);
 			path = String;
 			sourceTree = "<group>";
@@ -292,6 +314,7 @@
 		00C2C38C1FE32F4300721731 /* Collections */ = {
 			isa = PBXGroup;
 			children = (
+				0007A6F4234646D8001764DE /* Collection+Empty.swift */,
 				00063E231FDC677700568DFD /* BidirectionalCollection+Last.swift */,
 				00063E261FDC67A500568DFD /* Sequence+Distinct.swift */,
 				00063E291FDC692300568DFD /* Sequence+Grouping.swift */,
@@ -466,12 +489,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0007A6EF2346460B001764DE /* DictionaryEncoder.swift in Sources */,
 				00063E1E1FDC5F3A00568DFD /* UIColor+Brightness.swift in Sources */,
 				00C2C3871FE32D2A00721731 /* Date+Components.swift in Sources */,
 				00A0521B21020BA500A2D648 /* Array+Mutable.swift in Sources */,
 				0061832E20606B360079DD8C /* UIImage+GIF.swift in Sources */,
 				00C2C3831FE32C6900721731 /* String+Regex.swift in Sources */,
 				00A0523021037A3800A2D648 /* DispatchSemaphore+Lock.swift in Sources */,
+				0007A6F7234646EB001764DE /* Numeric+Empty.swift in Sources */,
 				00063E181FDC52B100568DFD /* UIColor+UInt8.swift in Sources */,
 				00CCC55F2285FA4D0035A700 /* DispatchQueue+Main.swift in Sources */,
 				00CCB28D1FE6BF6500F1E75C /* Identifiable.swift in Sources */,
@@ -481,8 +506,10 @@
 				00C2C3851FE32CD500721731 /* Date+Format.swift in Sources */,
 				00A0522121020F0F00A2D648 /* String+HTML.swift in Sources */,
 				00C2C37F1FE32B2800721731 /* String+NSRange.swift in Sources */,
+				0007A6F3234646C9001764DE /* String+Empty.swift in Sources */,
 				00CCC556228486230035A700 /* Transformation.swift in Sources */,
 				00C2C3741FE322FA00721731 /* ShadedColor.swift in Sources */,
+				0007A6F5234646D8001764DE /* Collection+Empty.swift in Sources */,
 				00C2C3811FE32B5800721731 /* String+CGSize.swift in Sources */,
 				00063E241FDC677700568DFD /* BidirectionalCollection+Last.swift in Sources */,
 				00063E211FDC668F00568DFD /* UInt+String.swift in Sources */,
@@ -496,6 +523,7 @@
 				005CC779206B908C0043E6CD /* Data+DataSize.swift in Sources */,
 				00CCC5582284890E0035A700 /* Array+Joining.swift in Sources */,
 				00CCC554228484530035A700 /* Set+Filtering.swift in Sources */,
+				0007A6F02346460B001764DE /* DictionaryDecoder.swift in Sources */,
 				00A052262102121500A2D648 /* Chaining.swift in Sources */,
 				00063E2D1FDC697300568DFD /* Dictionary+Mapping.swift in Sources */,
 				00A0522A2102126300A2D648 /* UIImagePickerControllerSourceType+SupportedMediaTypes.swift in Sources */,
@@ -669,6 +697,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.glar.tskit.core;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = NO;
@@ -693,6 +722,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.glar.tskit.core;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = NO;
