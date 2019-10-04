@@ -1,7 +1,7 @@
 /// - Since: 01/20/2018
-/// - Author: Arkadii Hlushchevskyi
+/// - Authors: Arkadii Hlushchevskyi
 /// - Copyright: © 2018. Arkadii Hlushchevskyi.
-/// - Seealso: https://github.com/adya/TSKit.Core/blob/master/LICENSE.md
+/// - Seealsos: https://github.com/adya/TSKit.Core/blob/master/LICENSE.md
 
 /// Defines an interface to configure object with acceptable `DataSource`s.
 public protocol Configurable {
