@@ -1,7 +1,7 @@
-/// - Since: 01/20/2018
-/// - Author: Arkadii Hlushchevskyi
-/// - Copyright: © 2019. Arkadii Hlushchevskyi.
-/// - Seealso: https://github.com/adya/TSKit.Core/blob/master/LICENSE.md
+// - Since: 01/20/2018
+// - Author: Arkadii Hlushchevskyi
+// - Copyright: © 2019. Arkadii Hlushchevskyi.
+// - Seealso: https://github.com/adya/TSKit.Core/blob/master/LICENSE.md
 
 /// A set of extension methods that add immutable counterparts of mutating methods `append`, `remove`, `move`.
 public extension Array {
@@ -11,21 +11,21 @@ public extension Array {
     /// - Parameter newIndex: An index of the position in the array where element should be placed.
     /// - Returns: An array with the element moved to new position.
     func moving(from index: Index, to newIndex: Index) -> Array {
-        return modifying { $0.move(from: index, to: newIndex) }
+        return TSKit_Core.transform(self) { $0.move(from: index, to: newIndex) }
     }
     
     /// Creates new array with an element appended.
     /// - Parameter index: An element to be appended.
     /// - Returns: An array with appended element.
     func appending(_ element: Element) -> [Element] {
-        return modifying { $0.append(element) }
+        return TSKit_Core.transform(self) { $0.append(element) }
     }
     
     /// Creates new array with an element at given `index` removed.
     /// - Parameter index: An index of the element to be removed.
     /// - Returns: An array with removed element.
     func removing(at index: Index) -> [Element] {
-        return modifying { $0.remove(at: index) }
+        return TSKit_Core.transform(self) { $0.remove(at: index) }
     }
 }
 
@@ -36,16 +36,21 @@ public extension Array where Element: Equatable {
     /// - Parameter element: An element to be removed.
     /// - Returns: An array with removed element.
     func removing(_ element: Element) -> [Element] {
-        return modifying { $0[element] = nil }
+        return TSKit_Core.transform(self) { $0[element] = nil }
     }
     
 }
 
-private extension Array {
-    
-    func modifying(_ editing: (_ copy: inout Array) -> Void) -> Array {
-        var copy = self
-        editing(&copy)
-        return copy
+public extension Array {
+
+    /// Removes first element that satisfies predicate from array.
+    /// - Complexity: `O(n)`, where `n` is the length of the array.
+    /// - Parameter predicate: A closure that takes an element of the array as its argument and
+    ///                        returns a `Boolean` value indicating whether the element satisfies predicate.
+    /// - Returns: Removed element if any, otherwise `nil`.
+    @discardableResult
+    mutating func removeFirst(where predicate: (Iterator.Element) -> Bool) -> Element? {
+        guard let index = firstIndex(where: predicate) else { return nil }
+        return remove(at: index)
     }
 }

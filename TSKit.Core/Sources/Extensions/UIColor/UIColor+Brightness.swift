@@ -1,7 +1,7 @@
-/// - Since: 01/20/2018
-/// - Author: Arkadii Hlushchevskyi
-/// - Copyright: © 2019. Arkadii Hlushchevskyi.
-/// - Seealso: https://github.com/adya/TSKit.Core/blob/master/LICENSE.md
+// - Since: 01/20/2018
+// - Author: Arkadii Hlushchevskyi
+// - Copyright: © 2019. Arkadii Hlushchevskyi.
+// - Seealso: https://github.com/adya/TSKit.Core/blob/master/LICENSE.md
 
 // MARK: - UIColor brightness adjustments
 public extension UIColor {
@@ -73,4 +73,23 @@ public extension UIColor {
             return nil
         }
     }
+}
+
+public extension UIColor {
+    
+    /// A value between `0.0` and `1.0` representing luminosity of the color.
+    var luminosity: CGFloat {
+        var r, g, b, a: CGFloat
+        (r, g, b, a) = (0, 0, 0, 0)
+        self.getRed(&r, green: &g, blue: &b, alpha: &a)
+        return 0.2126 * r + 0.7152 * g + 0.0722 * b
+    }
+    
+    /// Checks whether the color should be treated as dark.
+    /// - Parameter threshold: A maximum value of luminosity when color is determined as dark.
+    /// - Note: This method evaluates `luminosity` of the color and compares it to a certain threshold.
+    func isDark(threshold: CGFloat = 0.82) -> Bool {
+        return luminosity < threshold
+    }
+    
 }

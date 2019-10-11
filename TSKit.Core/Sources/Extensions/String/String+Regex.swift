@@ -1,8 +1,8 @@
-/// - Date: 10/31/2016
-/// - Since: 01/20/2018
-/// - Author: Arkadii Hlushchevskyi
-/// - Copyright: © 2019. Arkadii Hlushchevskyi.
-/// - Seealso: https://github.com/adya/TSKit.Core/blob/master/LICENSE.md
+// - Date: 10/31/2016
+// - Since: 01/20/2018
+// - Author: Arkadii Hlushchevskyi
+// - Copyright: © 2019. Arkadii Hlushchevskyi.
+// - Seealso: https://github.com/adya/TSKit.Core/blob/master/LICENSE.md
 
 // Date:
 import Foundation
@@ -24,20 +24,13 @@ public extension String {
             let groups: [(String, Range<String.Index>)] = (1..<result.numberOfRanges).compactMap {
                 let nsrange = result.range(at: $0)
                 guard nsrange.location != NSNotFound,
-                    let range = Range(nsrange, in: self) else {
-                        return nil
+                      let range = Range(nsrange, in: self) else {
+                    return nil
                 }
                 return (String(self[range]), range)
-                
             }
             return (match: match, groups: groups)
         }
-    }
-    
-    /// Removes `HTML` tags from string.
-    /// - Returns: String without `HTML` tags.
-    func removingTags() -> String {
-        return replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
     }
 }
 
