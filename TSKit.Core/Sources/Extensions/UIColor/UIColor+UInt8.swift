@@ -49,7 +49,8 @@ public extension UIColor {
         }
         if let value = UInt(hex, radix: 16) {
             self.init(value: value)
+        } else {
+            return nil
         }
-        return nil
     }
 }
