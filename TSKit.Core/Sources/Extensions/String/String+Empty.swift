@@ -1,6 +1,6 @@
 // - Since: 10/02/2019
 // - Author: Arkadii Hlushchevskyi
-// - Copyright: © 2019. Arkadii Hlushchevskyi.
+// - Copyright: © 2020. Arkadii Hlushchevskyi.
 // - Seealso: https://github.com/adya/TSKit.Core/blob/master/LICENSE.md
 
 public extension String {
