@@ -36,14 +36,14 @@ public extension Array where Element: Equatable {
     /// - Parameter element: An element to be removed.
     /// - Returns: An array with removed element.
     func removing(_ element: Element) -> [Element] {
-        return TSKit_Core.transform(self) { $0[element] = nil }
+        return TSKit_Core.transform(self) { $0.removeFirst(element) }
     }
     
 }
 
 public extension Array {
 
-    /// Removes first element that satisfies predicate from array.
+    /// Removes first element that satisfies predicate from the array.
     /// - Complexity: `O(n)`, where `n` is the length of the array.
     /// - Parameter predicate: A closure that takes an element of the array as its argument and
     ///                        returns a `Boolean` value indicating whether the element satisfies predicate.
@@ -52,5 +52,47 @@ public extension Array {
     mutating func removeFirst(where predicate: (Iterator.Element) -> Bool) -> Element? {
         guard let index = firstIndex(where: predicate) else { return nil }
         return remove(at: index)
+    }
+}
+
+public extension Array where Element: Equatable {
+
+    /// Removes first occurence of given `element` from the array.
+    /// - Complexity: `O(n)`, where `n` is the length of the array.
+    /// - Parameter element: An element to be removed from the array.
+    /// - Returns: Removed element if any, otherwise `nil`.
+    @discardableResult
+    mutating func removeFirst(_ element: Iterator.Element) -> Element? {
+        guard let index = firstIndex(of: element) else { return nil }
+        return remove(at: index)
+    }
+}
+
+public extension Array {
+    
+    /// Updates first element that satisfies predicate from the array.
+    /// - Complexity: `O(n)`, where `n` is the length of the array.
+    /// - Parameter predicate: A closure that takes an element of the array as its argument and
+    ///                        returns a `Boolean` value indicating whether the element satisfies predicate.
+    /// - Returns: Updated element if any, otherwise `nil`.
+    @discardableResult
+    mutating func updateFirst(where predicate: (Iterator.Element) -> Bool, with element: Element) -> Element? {
+        guard let index = firstIndex(where: predicate) else { return nil }
+        self[index] = element
+        return element
+    }
+}
+
+public extension Array where Element: Equatable {
+    
+    /// Updates first occurence of given `element` in the array.
+    /// - Complexity: `O(n)`, where `n` is the length of the array.
+    /// - Parameter element: An element to be updated in the array.
+    /// - Returns: Updated element if any, otherwise `nil`.
+    @discardableResult
+    mutating func updateFirst(_ element: Iterator.Element) -> Element? {
+        guard let index = firstIndex(of: element) else { return nil }
+        self[index] = element
+        return element
     }
 }
