@@ -31,8 +31,25 @@ public class DictionaryEncoder {
 
     public init() {}
     
+    private func encodeJson<T>(_ value: T) throws -> Any where T: Encodable {
+        try encoder.encode(value) ==> { try JSONSerialization.jsonObject(with: $0) }
+    }
+    
     public func encode<T>(_ value: T) throws -> [String: Any] where T: Encodable {
-        let data = try encoder.encode(value)
-        return try JSONSerialization.jsonObject(with: data) as! [String: Any]
+        let object = try encodeJson(value)
+        guard let dictionary = object as? [String: Any] else {
+            throw EncodingError.invalidValue(object, EncodingError.Context(codingPath: [], debugDescription: "Underlying object could not be represented as Dictionary"))
+        }
+        
+        return dictionary
+    }
+    
+    public func encode<T>(_ value: T) throws -> [[String: Any]] where T: Encodable {
+        let object = try encodeJson(value)
+        guard let array = object as? [[String: Any]] else {
+            throw EncodingError.invalidValue(object, EncodingError.Context(codingPath: [], debugDescription: "Underlying object could not be represented as Array"))
+        }
+        
+        return array
     }
 }

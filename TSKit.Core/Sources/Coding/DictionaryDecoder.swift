@@ -35,4 +35,9 @@ public class DictionaryDecoder {
         let data = try JSONSerialization.data(withJSONObject: dictionary, options: [])
         return try decoder.decode(type, from: data)
     }
+    
+    public func decode<T>(_ type: T.Type, from array: [[String: Any]]) throws -> T where T: Decodable {
+        let data = try JSONSerialization.data(withJSONObject: array, options: [])
+        return try decoder.decode(type, from: data)
+    }
 }
