@@ -35,6 +35,7 @@
 		0007A6F7234646EB001764DE /* Numeric+Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0007A6F6234646EB001764DE /* Numeric+Empty.swift */; };
 		0007A702234653AA001764DE /* URL+Relative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0007A701234653AA001764DE /* URL+Relative.swift */; };
 		0025DE2524AA109400EFA2BB /* URL+MimeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0025DE2424AA109400EFA2BB /* URL+MimeType.swift */; };
+		002A8B3E2508CD9A00577ACD /* Weak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002A8B3D2508CD9A00577ACD /* Weak.swift */; };
 		005CC779206B908C0043E6CD /* Data+DataSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005CC778206B908C0043E6CD /* Data+DataSize.swift */; };
 		005DF397206A99D900A9BDBB /* DataSize_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DF396206A99D900A9BDBB /* DataSize_Tests.swift */; };
 		0061832E20606B360079DD8C /* UIImage+GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0061832D20606B360079DD8C /* UIImage+GIF.swift */; };
@@ -122,6 +123,7 @@
 		0007A6F6234646EB001764DE /* Numeric+Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Numeric+Empty.swift"; sourceTree = "<group>"; };
 		0007A701234653AA001764DE /* URL+Relative.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Relative.swift"; sourceTree = "<group>"; };
 		0025DE2424AA109400EFA2BB /* URL+MimeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+MimeType.swift"; sourceTree = "<group>"; };
+		002A8B3D2508CD9A00577ACD /* Weak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weak.swift; sourceTree = "<group>"; };
 		005CC778206B908C0043E6CD /* Data+DataSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+DataSize.swift"; sourceTree = "<group>"; };
 		005DF396206A99D900A9BDBB /* DataSize_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSize_Tests.swift; sourceTree = "<group>"; };
 		0061832D20606B360079DD8C /* UIImage+GIF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+GIF.swift"; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 				00C2C3771FE328FE00721731 /* Time.swift */,
 				00C2C3751FE3286800721731 /* DataSize.swift */,
 				00C2C3731FE322FA00721731 /* ShadedColor.swift */,
+				002A8B3D2508CD9A00577ACD /* Weak.swift */,
 			);
 			path = Structs;
 			sourceTree = "<group>";
@@ -528,6 +531,7 @@
 				00A0522121020F0F00A2D648 /* String+HTML.swift in Sources */,
 				00C2C37F1FE32B2800721731 /* String+NSRange.swift in Sources */,
 				0007A6F3234646C9001764DE /* String+Empty.swift in Sources */,
+				002A8B3E2508CD9A00577ACD /* Weak.swift in Sources */,
 				00CCC556228486230035A700 /* Transformation.swift in Sources */,
 				00C2C3741FE322FA00721731 /* ShadedColor.swift in Sources */,
 				0007A702234653AA001764DE /* URL+Relative.swift in Sources */,
@@ -719,7 +723,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 2.1.0;
+				MARKETING_VERSION = 2.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.glar.tskit.core;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = NO;
@@ -744,7 +748,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 2.1.0;
+				MARKETING_VERSION = 2.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.glar.tskit.core;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = NO;
