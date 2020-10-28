@@ -2,7 +2,7 @@ import XCTest
 import Foundation
 @testable import TSKit_Core
 
-class DataSize_Tests: XCTestCase {
+class DataSizeTests: XCTestCase {
     
     var size = DataSize<Int64>()
     
@@ -12,7 +12,7 @@ class DataSize_Tests: XCTestCase {
 }
 
 // MARK: - Initializers
-extension DataSize_Tests {
+extension DataSizeTests {
     
     func testWithoutOverflows() {
         
@@ -37,7 +37,7 @@ extension DataSize_Tests {
 }
 
 // MARK: - Sum
-extension DataSize_Tests {
+extension DataSizeTests {
     
     
     func testSumWithoutOverflow() {

@@ -3,6 +3,8 @@
 // - Copyright: © 2020. Arkadii Hlushchevskyi.
 // - Seealso: https://github.com/adya/TSKit.Core/blob/master/LICENSE.md
 
+import UIKit
+
 // MARK: - UIColor brightness adjustments
 public extension UIColor {
     

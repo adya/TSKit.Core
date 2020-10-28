@@ -1,3 +1,8 @@
+// - Since: 09/09/2020
+// - Author: Arkadii Hlushchevskyi
+// - Copyright: © 2020. Arkadii Hlushchevskyi.
+// - Seealso: https://github.com/adya/TSKit.Core/blob/master/LICENSE.md
+
 import Foundation
 
 /// A wrapper object that holds weak reference to given `object`.

@@ -4,6 +4,7 @@
 // - Seealso: https://github.com/adya/TSKit.Core/blob/master/LICENSE.md
 
 import Foundation
+import UIKit
 
 public extension String {
     
