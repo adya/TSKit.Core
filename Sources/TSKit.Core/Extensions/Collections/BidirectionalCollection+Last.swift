@@ -5,7 +5,8 @@
 
 public extension BidirectionalCollection {
     
-    /// Gets the last element matching specified `predicate`. Works the same way as `first(where:)`, but reversed.
+    /// Returns the last element matching specified `predicate`.
+    /// - Note: Works the same way as `first(where:)`, but reversed.
     /// - Returns: Last element matching `predicate`.
     func last(where predicate: (Element) throws -> Bool) rethrows -> Element? {
         for index in self.indices.reversed() {
