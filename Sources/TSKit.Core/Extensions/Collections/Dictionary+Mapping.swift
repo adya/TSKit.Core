@@ -76,8 +76,8 @@ public func += <K, V>(left: inout [K: V], right: [K: V]) {
 
 /// Creates a new dictionary containing all keys and values from both `left` and `right` dictionaries.
 public func + <K, V>(left: [K: V], right: [K: V]) -> [K: V] {
-    var dic = right
-    dic += left
+    var dic = left
+    dic += right
     return dic
 }
 
