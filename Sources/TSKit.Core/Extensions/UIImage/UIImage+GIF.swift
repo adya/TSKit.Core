@@ -2,10 +2,9 @@
 // - Author: Arkadii Hlushchevskyi
 // - Copyright: © 2020. Arkadii Hlushchevskyi.
 // - Seealso: https://github.com/adya/TSKit.Core/blob/master/LICENSE.md
-
+#if os(iOS)
 import UIKit
 import ImageIO
-
 
 public extension UIImage {
 	
@@ -91,3 +90,4 @@ private func gcd(for array: [Int]) -> Int {
     guard let first = array.first else { return 1 }
     return array.reduce(first) { gcd(for: ($1, $0))}
 }
+#endif

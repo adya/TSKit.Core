@@ -2,7 +2,7 @@
 // - Author: Arkadii Hlushchevskyi
 // - Copyright: © 2020. Arkadii Hlushchevskyi.
 // - Seealso: https://github.com/adya/TSKit.Core/blob/master/LICENSE.md
-
+#if os(iOS)
 import UIKit
 
 public extension UIImagePickerController.SourceType {
@@ -14,3 +14,4 @@ public extension UIImagePickerController.SourceType {
         UIImagePickerController.availableMediaTypes(for: self)?.contains(mediaType) ?? false
     }
 }
+#endif

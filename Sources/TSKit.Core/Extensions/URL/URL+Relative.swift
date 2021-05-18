@@ -4,6 +4,7 @@
 // - Seealso: https://github.com/adya/TSKit.Core/blob/master/LICENSE.md
 import Foundation
 
+@available(OSX 10.11, *)
 public extension URL {
     
     /// Creates an `url` that is resolved relatively to specified `root`.

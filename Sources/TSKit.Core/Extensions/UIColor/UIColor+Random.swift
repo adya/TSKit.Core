@@ -3,6 +3,7 @@
 // - Copyright: © 2020. Arkadii Hlushchevskyi.
 // - Seealso: https://github.com/adya/TSKit.Core/blob/master/LICENSE.md
 
+#if os(iOS)
 import UIKit
 
 public extension UIColor {
@@ -34,3 +35,4 @@ public extension UIColor {
         return UIColor(red: red, green: green, blue: blue, alpha: 1)
     }
 }
+#endif

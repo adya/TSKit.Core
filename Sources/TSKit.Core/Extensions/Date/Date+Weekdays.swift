@@ -51,6 +51,7 @@ public struct DateInterval {
 
     private(set) public var end: Date
 
+    @available(OSX 10.12, *)
     @available(iOS 10, *)
     public init(dateInterval: Foundation.DateInterval) {
         start = dateInterval.start

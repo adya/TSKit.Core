@@ -2,7 +2,7 @@
 // - Author: Arkadii Hlushchevskyi
 // - Copyright: © 2020. Arkadii Hlushchevskyi.
 // - Seealso: https://github.com/adya/TSKit.Core/blob/master/LICENSE.md
-
+#if os(iOS)
 import UIKit
 /// TSTOOLS: Description.. date 8/19/16
 
@@ -83,3 +83,4 @@ private struct ManualShadeColor : ShadedColor {
    
     let lighter : UIColor
 }
+#endif

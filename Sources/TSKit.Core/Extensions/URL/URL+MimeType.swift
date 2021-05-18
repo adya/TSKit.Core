@@ -1,4 +1,5 @@
 import Foundation
+#if !os(macOS)
 import MobileCoreServices
 
 public extension URL {
@@ -12,3 +13,4 @@ public extension URL {
         return nil
     }
 }
+#endif

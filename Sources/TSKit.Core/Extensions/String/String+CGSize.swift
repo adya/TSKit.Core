@@ -2,7 +2,7 @@
 // - Author: Arkadii Hlushchevskyi
 // - Copyright: © 2020. Arkadii Hlushchevskyi.
 // - Seealso: https://github.com/adya/TSKit.Core/blob/master/LICENSE.md
-
+#if os(iOS)
 import Foundation
 import UIKit
 
@@ -68,3 +68,4 @@ extension NSAttributedString {
         return size(constrainingHeight: maxHeight).width
     }
 }
+#endif
