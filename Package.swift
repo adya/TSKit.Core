@@ -15,6 +15,9 @@ let package = Package(
     targets: [
         .target(
             name: "TSKit.Core",
+            dependencies: ["TSKit.Core.ObjC"]),
+        .target(
+            name: "TSKit.Core.ObjC",
             dependencies: []),
         .testTarget(
             name: "TSKit.CoreTests",
