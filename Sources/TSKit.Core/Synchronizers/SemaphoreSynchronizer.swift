@@ -2,9 +2,10 @@
 // - Author: Arkadii Hlushchevskyi
 // - Copyright: © 2022. Arkadii Hlushchevskyi.
 // - Seealso: https://github.com/adya/TSKit.Core/blob/master/LICENSE.md
+
 import Dispatch
 
-/// **Not** reentrant synchronizer that is based on a concurrent `DispatchQueue`.
+/// **Not** reentrant synchronizer that is based on a `DispatchSemaphore`.
 public final class SemaphoreSynchronizer: AnySynchronizer {
 
     private let semaphore: DispatchSemaphore

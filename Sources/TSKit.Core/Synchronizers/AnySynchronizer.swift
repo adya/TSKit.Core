@@ -3,7 +3,7 @@
 // - Copyright: © 2022. Arkadii Hlushchevskyi.
 // - Seealso: https://github.com/adya/TSKit.Core/blob/master/LICENSE.md
 
-/// Abstraction for access synchronization in a multithreaded environment.
+/// An object that synchronizes access to a critical section in a multithreaded environment.
 public protocol AnySynchronizer: AnyObject {
 
     /// Provides synchronized **read-only** access within `block` in a multithreaded environment.
@@ -36,33 +36,3 @@ public protocol AnySynchronizer: AnyObject {
     /// - Parameter block: Closure to be excecuted.
     func write(_ block: @escaping () -> Void)
 }
-
-/// Abstraction for access synchronization in multithreaded environment.
-///
-/// `AnyReentrantSynchronizer` handles nested calls to `read` and `syncWrite`,
-/// so that they won't cause deadlocks. Use reentrant synchronizers when you need to recursively call synchronized API.
-/// For example:
-/// ```
-/// let synchronizer: AnyReentrantSynchronizer
-///
-/// func synchornizedRoutine1(_ synchronizedCompletion: () -> Void) {
-///     synchronizer.read {
-///         // perform some reading routine
-///         synchronizedCompletion()
-///     }
-/// }
-///
-/// func synchornizedRoutine2() {
-///     synchronizer.syncWrite {
-///         // perform some writing routine
-///     }
-/// }
-/// func call() {
-///     synchornizedRoutine1 {
-///     // This will cause a dead-lock when used with regular AnySynchronizer.
-///     // But will work as intended when used with AnyreentrantSynchronizer.
-///         synchornizedRoutine2()
-///     }
-/// }
-/// ```
-public protocol AnyReentrantSynchronizer: AnySynchronizer {}

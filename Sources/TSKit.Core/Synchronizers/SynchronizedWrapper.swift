@@ -13,7 +13,7 @@ public class Synchronized<Value> {
 
     public var wrappedValue: Value {
         get { synchronizer.read { value } }
-        set { synchronizer.write { self.value = newValue } }
+        set { synchronizer.syncWrite { self.value = newValue } }
     }
 
     public init(wrappedValue: Value, synchronizer: AnySynchronizer) {
