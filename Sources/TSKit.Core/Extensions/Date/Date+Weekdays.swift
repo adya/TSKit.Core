@@ -2,64 +2,66 @@
 // - Author: Arkadii Hlushchevskyi
 // - Copyright: © 2022. Arkadii Hlushchevskyi.
 // - Seealso: https://github.com/adya/TSKit.Core/blob/master/LICENSE.md
-
 import Foundation
 
 public extension Date {
 
-    /// - Returns: The very first moment of the day represented by the receiver.
+    /// Returns the first moment of a given `Date`, as a `Date`.
+    /// For example:
+    /// ```
+    /// let current = Date() // Jan 31, 21:30:25
+    /// let start = current.startOfDay() // Jan 31, 00:00:00
+    /// ```
+    /// - Parameter calendar: Calendar that will be used to calculate the start of day. Defaults to `.current`.
+    /// - Returns: The first moment of the given `Date`.
+    @available(*, deprecated, message: "Use Calendar.startOfDay instead")
     func startOfDay(in calendar: Calendar = .current) -> Date {
-        return calendar.startOfDay(for: self)
+        calendar.startOfDay(for: self)
     }
 
-    /// - Returns: The very last moment of the day represented by the receiver.
+    /// Returns the last moment of a given `Date`, as a `Date`.
+    /// For example:
+    /// ```
+    /// let current = Date() // Jan 31, 21:30:25
+    /// let end = current.endOfDay() // Jan 31, 23:59:59
+    /// ```
+    /// - Parameter calendar: Calendar that will be used to calculate the end of day. Defaults to `.current`.
+    /// - Returns: The last moment of the given `Date`.
+    @available(*, deprecated, message: "Use Calendar.endOfDay instead")
     func endOfDay(in calendar: Calendar = .current) -> Date {
-        return calendar.date(byAdding: .init(day: 1, second: -1), to: startOfDay(in: calendar))!
+        calendar.endOfDay(for: self)!
     }
 }
 
 public extension Date {
 
     /// - Returns: Date for tomorrow at the exact same time.
+    @available(*, deprecated, message: "Use Calendar.tomorrow(for:) instead")
     func tomorrow(in calendar: Calendar = .current) -> Date {
-        return calendar.date(byAdding: .day, value: 1, to: self)!
+        calendar.tomorrow(for: self)
     }
 
+    @available(*, deprecated, message: "Use Calendar.week(for:offset:) instead")
+    @available(iOS 10.0, *)
+    @available(macOS 10.12, *)
     func week(_ offset: Int = 0, in calendar: Calendar = .current) -> DateInterval {
-        let currentWeekday = calendar.component(.weekday, from: self)
-        let weekdays = calendar.range(of: .weekday, in: .weekOfYear, for: self)!
-        let firstCurrentWeekdayDistance = -(currentWeekday - calendar.firstWeekday)
-        let firstOffsetWeekday = calendar.date(byAdding: .init(day: firstCurrentWeekdayDistance, weekOfYear: offset), to: self)!
-                                         .startOfDay(in: calendar)
-        let lastOffsetWeekday = calendar.date(byAdding: .init(day: weekdays.count, second: -1), to: firstOffsetWeekday)!
-        return .init(start: firstOffsetWeekday, end: lastOffsetWeekday)
+        calendar.week(for: self, offset: offset)!
     }
 
+    @available(*, deprecated, message: "Use Calendar.month(for:offset:) instead")
+    @available(iOS 10.0, *)
+    @available(macOS 10.12, *)
     func month(_ offset: Int = 0, in calendar: Calendar = .current) -> DateInterval {
-        let currentDay = calendar.component(.day, from: self)
-        let firstCurrentDayDistance = -(currentDay - 1)
-        let firstOffsetDay = calendar.date(byAdding: .init(month: offset, day: firstCurrentDayDistance), to: self)!
-                                     .startOfDay(in: calendar)
-        let lastOffsetDay = calendar.date(byAdding: .init(month: 1, second: -1), to: firstOffsetDay)!
-        return .init(start: firstOffsetDay, end: lastOffsetDay)
+        calendar.month(for: self, offset: offset)!
     }
-}
-
-public struct DateInterval {
-
-    private(set) public var start: Date
-
-    private(set) public var end: Date
-
-    @available(OSX 10.12, *)
-    @available(iOS 10, *)
-    public init(dateInterval: Foundation.DateInterval) {
-        start = dateInterval.start
-        end = dateInterval.end
+    
+    @available(*, deprecated, message: "Use Calendar.startOfMonth(for:offset:) instead")
+    func startOfMonth(in calendar: Calendar = .current) -> Date? {
+        calendar.startOfMonth(for: self, offset: 0)
     }
-
-    public init(start: Date, end: Date) {
-        self.start = start
-        self.end = end
+    
+    @available(*, deprecated, message: "Use Calendar.endOfMonth(for:offset:) instead")
+    func endOfMonth(in calendar: Calendar = .current) -> Date? {
+        calendar.endOfMonth(for: self, offset: 0)
     }
 }
