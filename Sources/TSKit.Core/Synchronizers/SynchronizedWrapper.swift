@@ -4,6 +4,8 @@
 // - Seealso: https://github.com/adya/TSKit.Core/blob/master/LICENSE.md
 
 /// Wrapper that ensures synchronous access to a wrapped property.
+///
+/// By default `Synchronized` uses `SemaphoreSynchronizer`.
 @propertyWrapper
 public class Synchronized<Value> {
 
@@ -80,7 +82,7 @@ public class Synchronized<Value> {
         }
     }
 
-    public init(wrappedValue: Value, synchronizer: AnySynchronizer) {
+    public init(wrappedValue: Value, synchronizer: AnySynchronizer = SemaphoreSynchronizer()) {
         self.value = wrappedValue
         self.synchronizer = synchronizer
     }
