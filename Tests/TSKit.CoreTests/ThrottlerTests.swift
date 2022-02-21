@@ -60,7 +60,6 @@ class ThrottlerTests: XCTestCase {
     }
 }
 
-
 private extension ThrottlerTests {
     
     /// Waits for a stub expectation that allows throttling test to wait until all throttling activity finishes.
