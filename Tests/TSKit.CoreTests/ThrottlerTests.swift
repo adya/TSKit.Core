@@ -9,7 +9,7 @@ class ThrottlerTests: XCTestCase {
     
     override func setUp() {
         queue = .init(label: "TestingQueue")
-        throttler = .init(throttlingInterval: 0.5, deafultQueue: queue)
+        throttler = .init(throttlingInterval: 0.45, deafultQueue: queue)
         super.setUp()
     }
 
@@ -45,18 +45,22 @@ class ThrottlerTests: XCTestCase {
 //        let expectedValues = [1, 2, 51, 52] // For 100 iterations
         let expectedValues = [1, 2, 6, 7] // For 10 iterations
         let delay = (executeInSeconds * 1000)/iterations
+        var counter = 1
         for i in (1...iterations) {
             q.asyncAfter(deadline: .now() + .milliseconds(i * delay)) { [self] in
+                print("\(counter * delay)ms: Sending #\(i)")
                 throttler.throttleFirst {
+                    print("\(counter * delay)ms: Using #\(i)")
                     values.append(i)
                 }
+                counter += 1
             }
         }
-        q.asyncAfter(deadline: .now() + .milliseconds((executeInSeconds*1000) + 200)) {
+        q.asyncAfter(deadline: .now() + .milliseconds((executeInSeconds*1000) + 500)) {
             XCTAssertEqual(values, expectedValues)
         }
         
-        wait(TimeInterval(executeInSeconds)*1.5)
+        wait(TimeInterval(executeInSeconds)*2)
     }
 }
 
