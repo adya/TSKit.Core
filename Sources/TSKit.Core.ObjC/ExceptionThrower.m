@@ -13,8 +13,12 @@
         block();
         return YES;
     }
-    @catch (NSException *exception) {
-        *error = [[NSError alloc] initWithDomain:exception.name code:0 userInfo:exception.userInfo];
+    @catch (NSException* exception) {
+        NSMutableDictionary* userInfo = [[NSMutableDictionary alloc] initWithDictionary: exception.userInfo];
+        [userInfo setValue: exception.callStackSymbols forKey: @"callStackSymbols"];
+        [userInfo setValue: exception.reason forKey: @"reason"];
+        [userInfo setValue: exception forKey: @"exception"];
+        *error = [[NSError alloc] initWithDomain:exception.name code:0 userInfo: userInfo];
         return NO;
     }
 }
