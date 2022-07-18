@@ -19,8 +19,7 @@ public extension Calendar {
     /// - Parameter date: A Date for which a day will be calculated.
     /// - Returns: A `DateInterval` that represents the day containing given `date`.
     /// - Note: If you only need start or the end of the day use `startOfDay` or `endOfDay` respectively.
-    @available(iOS 10.0, *)
-    @available(macOS 10.12, *)
+    @available(iOS 10.0, macOS 10.12, tvOS 10.0, *)
     func day(for date: Date) -> DateInterval? {
         guard let endOfDay = endOfDay(for: date) else { return nil }
         return .init(start: startOfDay(for: date), end: endOfDay)

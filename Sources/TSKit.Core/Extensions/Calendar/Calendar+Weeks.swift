@@ -19,8 +19,7 @@ public extension Calendar {
     /// - Parameter date: A Date relatively to which a week will be calculated.
     /// - Returns: A `DateInterval` that represents the week containing given `date`.
     /// - Note: This is an equivalent of calling `week(for: date, offset: 0)`.
-    @available(iOS 10.0, *)
-    @available(macOS 10.12, *)
+    @available(iOS 10.0, macOS 10.12, tvOS 10.0, *)
     func currentWeek(for date: Date) -> DateInterval? {
         week(for: date, offset: 0)
     }
@@ -71,8 +70,7 @@ public extension Calendar {
     /// - Parameter date: A Date relatively to which a week will be calculated.
     /// - Returns: A `DateInterval` that represents the previous week.
     /// - Note: This is an equivalent of calling `week(for: date, offset: -1)`.
-    @available(iOS 10.0, *)
-    @available(macOS 10.12, *)
+    @available(iOS 10.0, macOS 10.12, tvOS 10.0, *)
     func previousWeek(for date: Date) -> DateInterval? {
         week(for: date, offset: -1)
     }
@@ -123,8 +121,7 @@ public extension Calendar {
     /// - Parameter date: A Date relatively to which a week will be calculated.
     /// - Returns: A `DateInterval` that represents the next week.
     /// - Note: This is an equivalent of calling `week(for: date, offset: 1)`.
-    @available(iOS 10.0, *)
-    @available(macOS 10.12, *)
+    @available(iOS 10.0, macOS 10.12, tvOS 10.0, *)
     func nextWeek(for date: Date) -> DateInterval? {
         week(for: date, offset: 1)
     }
@@ -177,8 +174,7 @@ public extension Calendar {
     ///                      For example, an `offset: 1` would find a next week relative to given date.
     /// - Returns: A `DateInterval` that represents the week containing given `date`.
     /// - Note: If you only need start or the end of the week use `startOfWeek` or `endOfWeek` respectively.
-    @available(iOS 10.0, *)
-    @available(macOS 10.12, *)
+    @available(iOS 10.0, macOS 10.12, tvOS 10.0, *)
     func week(for date: Date, offset: Int) -> DateInterval? {
         guard let startOfWeek = startOfWeek(for: date, offset: offset),
               let endOfWeek = endOfWeek(for: date, offset: offset) else {

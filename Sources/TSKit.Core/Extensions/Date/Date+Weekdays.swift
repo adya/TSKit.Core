@@ -42,15 +42,13 @@ public extension Date {
     }
 
     @available(*, deprecated, message: "Use Calendar.week(for:offset:) instead")
-    @available(iOS 10.0, *)
-    @available(macOS 10.12, *)
+    @available(iOS 10.0, macOS 10.12, tvOS 10.0, *)
     func week(_ offset: Int = 0, in calendar: Calendar = .current) -> DateInterval {
         calendar.week(for: self, offset: offset)!
     }
 
     @available(*, deprecated, message: "Use Calendar.month(for:offset:) instead")
-    @available(iOS 10.0, *)
-    @available(macOS 10.12, *)
+    @available(iOS 10.0, macOS 10.12, tvOS 10.0, *)
     func month(_ offset: Int = 0, in calendar: Calendar = .current) -> DateInterval {
         calendar.month(for: self, offset: offset)!
     }

@@ -19,8 +19,7 @@ public extension Calendar {
     /// - Parameter date: A Date relatively to which a month will be calculated.
     /// - Returns: A `DateInterval` that represents the month containing given `date`.
     /// - Note: This is an equivalent of calling `month(for: date, offset: 0)`.
-    @available(iOS 10.0, *)
-    @available(macOS 10.12, *)
+    @available(iOS 10.0, macOS 10.12, tvOS 10.0, *)
     func currentMonth(for date: Date) -> DateInterval? {
         month(for: date, offset: 0)
     }
@@ -71,8 +70,7 @@ public extension Calendar {
     /// - Parameter date: A Date relatively to which a month will be calculated.
     /// - Returns: A `DateInterval` that represents the previous month.
     /// - Note: This is an equivalent of calling `month(for: date, offset: -1)`.
-    @available(iOS 10.0, *)
-    @available(macOS 10.12, *)
+    @available(iOS 10.0, macOS 10.12, tvOS 10.0, *)
     func previousMonth(for date: Date) -> DateInterval? {
         month(for: date, offset: -1)
     }
@@ -123,8 +121,7 @@ public extension Calendar {
     /// - Parameter date: A Date relatively to which a month will be calculated.
     /// - Returns: A `DateInterval` that represents the next month.
     /// - Note: This is an equivalent of calling `month(for: date, offset: 1)`.
-    @available(iOS 10.0, *)
-    @available(macOS 10.12, *)
+    @available(iOS 10.0, macOS 10.12, tvOS 10.0, *)
     func nextMonth(for date: Date) -> DateInterval? {
         month(for: date, offset: 1)
     }
@@ -177,8 +174,7 @@ public extension Calendar {
     ///                      For example, an `offset: 1` would find a next month relative to given date.
     /// - Returns: A `DateInterval` that represents the month containing given `date`.
     /// - Note: If you only need start or the end of the month use `startOfMonth` or `endOfMonth` respectively.
-    @available(iOS 10.0, *)
-    @available(macOS 10.12, *)
+    @available(iOS 10.0, macOS 10.12, tvOS 10.0, *)
     func month(for date: Date, offset: Int) -> DateInterval? {
         guard let startOfMonth = startOfMonth(for: date, offset: offset),
               let endOfMonth = endOfMonth(startingOn: startOfMonth) else {
